@@ -3,682 +3,154 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Casa Creativa Inmobiliaria — Propuesta de rediseño v3</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&display=swap');
-
-  :root{
-    --bg:#F8F5EF;
-    --ink:#232A2E;
-    --gray:#6B6B63;
-    --gray-light:#8C8C82;
-    --line: rgba(35,42,46,0.10);
-    --clay:#B85C38;
-    --clay-deep:#9A4A2C;
-    --panel:#F0EBDF;
-  }
-  *{box-sizing:border-box;}
-  html{ scroll-behavior:smooth; }
-  body{
-    margin:0; background:var(--bg); color:var(--ink);
-    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3{ margin:0; font-family:'Fraunces',serif; font-weight:500; letter-spacing:-0.01em; }
-  p{ margin:0; }
-  img{ display:block; width:100%; height:100%; object-fit:cover; }
-
-  /* ---- Prototype chrome ---- */
-  .proto-bar{
-    position:sticky; top:0; z-index:200;
-    background:var(--ink); color:#fff;
-    padding:9px 24px;
-    display:flex; align-items:center; justify-content:space-between;
-    font-family:'Inter',sans-serif; font-size:12px;
-  }
-  .proto-bar .tag{ background:var(--clay); padding:3px 10px; border-radius:20px; font-weight:600; letter-spacing:.02em; }
-  .proto-nav{ display:flex; gap:6px; }
-  .proto-nav button{
-    background:transparent; border:1px solid rgba(255,255,255,0.25);
-    color:#fff; padding:6px 14px; border-radius:20px;
-    font-size:11.5px; cursor:pointer; font-family:inherit;
-  }
-  .proto-nav button.active{ background:#fff; color:var(--ink); border-color:#fff; }
-
-  .view{ display:none; }
-  .view.active{ display:block; animation:fade .4s ease; }
-  @keyframes fade{ from{opacity:0;} to{opacity:1;} }
-
-  /* ---- Header, translucent like Apple but warm ---- */
-  header.site{
-    position:sticky; top:33px; z-index:150;
-    display:flex; align-items:center; justify-content:space-between;
-    padding:0 32px; height:60px;
-    background:rgba(248,245,239,0.82); backdrop-filter:blur(16px);
-    border-bottom:1px solid var(--line);
-  }
-  .logo{ display:flex; align-items:center; gap:10px; }
-  .logo img{ width:32px; height:32px; object-fit:contain; }
-  .logo .word{ font-family:'Fraunces',serif; font-size:17px; font-weight:500; }
-  nav.site-links{ display:flex; gap:36px; font-size:13px; }
-  nav.site-links a{ color:var(--ink); text-decoration:none; opacity:.78; cursor:pointer; }
-  nav.site-links a:hover{ opacity:1; }
-  .header-actions{ display:flex; align-items:center; gap:20px; font-size:12.5px; }
-  .lang-toggle{ display:flex; gap:10px; opacity:.7; }
-  .lang-toggle span{ cursor:pointer; }
-  .lang-toggle span.on{ opacity:1; font-weight:600; color:var(--ink); }
-
-  .btn{
-    font-family:'Inter',sans-serif; font-weight:500; font-size:14px;
-    padding:11px 22px; border-radius:980px; border:none; cursor:pointer;
-    display:inline-flex; align-items:center; justify-content:center; gap:6px;
-    text-decoration:none;
-  }
-  .btn.primary{ background:var(--clay); color:#fff; }
-  .btn.primary:hover{ background:var(--clay-deep); }
-  .btn.link{ background:none; color:var(--clay-deep); padding:0; font-weight:600; font-size:14px; }
-  .btn.link:after{ content:'›'; margin-left:2px; }
-  .btn.outline{ background:transparent; border:1px solid var(--line); color:var(--ink); }
-
-  /* ---- Hero ---- */
-  .hero{ text-align:center; padding:84px 24px 50px; }
-  .hero .eyebrow{ font-family:'Inter',sans-serif; font-size:13px; color:var(--clay-deep); font-weight:600; letter-spacing:.03em; text-transform:uppercase; margin-bottom:16px; }
-  .hero h1{ font-size:52px; line-height:1.1; max-width:760px; margin:0 auto; }
-  .hero h1 em{ font-style:italic; color:var(--clay); }
-  .hero p.lede{ font-family:'Inter',sans-serif; font-size:17.5px; color:var(--gray); max-width:500px; margin:20px auto 0; line-height:1.55; }
-  .hero-ctas{ display:flex; gap:26px; justify-content:center; margin-top:26px; align-items:center; font-size:15px; }
-
-  .coastline-mark{ margin:36px auto 0; max-width:280px; opacity:.85; }
-
-  .hero-media{ margin-top:44px; padding:0 24px; }
-  .hero-media .frame{ max-width:1200px; margin:0 auto; border-radius:20px; overflow:hidden; height:500px; position:relative; }
-  .hero-media .frame .overlay{
-    position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(20,20,15,0.6) 100%);
-    display:flex; align-items:flex-end; padding:34px;
-  }
-  .hero-media .frame .overlay div{ color:#fff; text-align:left; }
-  .hero-media .frame .overlay .loc{ font-family:'Inter',sans-serif; font-size:12.5px; opacity:.85; margin-bottom:6px; letter-spacing:.02em; }
-  .hero-media .frame .overlay .cap{ font-family:'Fraunces',serif; font-size:23px; font-weight:500; }
-
-  /* ---- Search bar ---- */
-  .search-bar{
-    max-width:900px; margin:-36px auto 0; position:relative; z-index:5;
-    background:#fff; border-radius:14px; box-shadow:0 24px 50px -22px rgba(35,42,46,0.28);
-    padding:8px; display:grid; grid-template-columns:1fr 1fr 1fr auto; gap:2px;
-  }
-  .search-bar .field{ padding:10px 16px; border-right:1px solid var(--line); }
-  .search-bar .field:last-of-type{ border-right:none; }
-  .search-bar .field label{ display:block; font-family:'Inter',sans-serif; font-size:10.5px; color:var(--gray); margin-bottom:3px; text-transform:uppercase; letter-spacing:.04em; }
-  .search-bar .field select{ border:none; background:none; font-size:14px; color:var(--ink); font-family:'Inter',sans-serif; width:100%; padding:0; }
-  .search-bar .btn{ margin:2px; }
-
-  /* ---- Section ---- */
-  .section{ max-width:1200px; margin:0 auto; padding:96px 32px; }
-  .section.tight{ padding-top:60px; padding-bottom:60px; }
-  .section-head{ text-align:center; margin-bottom:54px; }
-  .section-head .eyebrow{ font-family:'Inter',sans-serif; font-size:13px; color:var(--clay-deep); font-weight:600; letter-spacing:.03em; text-transform:uppercase; margin-bottom:10px; }
-  .section-head h2{ font-size:36px; }
-  .section-head p{ font-family:'Inter',sans-serif; font-size:15.5px; color:var(--gray); max-width:480px; margin:14px auto 0; line-height:1.55; }
-
-  /* ---- Listings grid ---- */
-  .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:36px 26px; }
-  .card{ cursor:pointer; }
-  .card .thumb{ height:250px; border-radius:14px; overflow:hidden; margin-bottom:16px; transition:transform .3s ease; }
-  .card:hover .thumb{ transform:translateY(-3px); }
-  .card .price{ font-family:'Fraunces',serif; font-size:19px; font-weight:500; }
-  .card .title{ font-family:'Inter',sans-serif; font-size:14.5px; color:var(--ink); margin-top:5px; }
-  .card .loc{ font-family:'Inter',sans-serif; font-size:12.5px; color:var(--gray); margin-top:7px; }
-  .card .specs{ font-family:'Inter',sans-serif; font-size:12px; color:var(--gray-light); margin-top:10px; display:flex; gap:12px; }
-
-  .see-all{ text-align:center; margin-top:48px; }
-
-  /* ---- Coverage strip ---- */
-  .coverage{ background:var(--panel); padding:64px 32px; text-align:center; }
-  .coverage h2{ font-size:26px; margin-top:10px; }
-  .coverage .towns{ font-family:'Inter',sans-serif; display:flex; flex-wrap:wrap; gap:12px 30px; justify-content:center; margin-top:26px; font-size:14.5px; color:var(--gray); }
-  .coverage .towns span{ color:var(--clay-deep); font-weight:600; }
-
-  /* ---- Feature rows ---- */
-  .feature-row{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; padding:84px 32px; max-width:1200px; margin:0 auto; }
-  .feature-row.reverse{ direction:rtl; }
-  .feature-row.reverse > *{ direction:ltr; }
-  .feature-row .media{ border-radius:18px; overflow:hidden; height:380px; }
-  .feature-row .copy .eyebrow{ font-family:'Inter',sans-serif; font-size:13px; color:var(--clay-deep); font-weight:600; text-transform:uppercase; letter-spacing:.03em; margin-bottom:12px; }
-  .feature-row .copy h2{ font-size:30px; line-height:1.2; }
-  .feature-row .copy p{ font-family:'Inter',sans-serif; font-size:15.5px; color:var(--gray); margin-top:15px; line-height:1.6; max-width:420px; }
-  .feature-row .copy .btn{ margin-top:22px; }
-
-  /* ---- Why us ---- */
-  .why-list{ display:grid; grid-template-columns:repeat(3,1fr); gap:44px; }
-  .why-item{ text-align:left; padding-top:20px; border-top:1px solid var(--line); }
-  .why-item h3{ font-size:18.5px; }
-  .why-item p{ font-family:'Inter',sans-serif; font-size:14px; color:var(--gray); margin-top:10px; line-height:1.55; }
-
-  /* ---- Real services grid ---- */
-  .services-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
-  .service-card{ background:var(--panel); border-radius:14px; padding:26px; }
-  .service-card .icon{ width:38px; height:38px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center; font-size:17px; margin-bottom:16px; }
-  .service-card h3{ font-size:16.5px; }
-  .service-card p{ font-family:'Inter',sans-serif; font-size:13.5px; color:var(--gray); margin-top:8px; line-height:1.55; }
-  .service-card.partner{ background:var(--ink); color:#fff; }
-  .service-card.partner h3{ color:#fff; }
-  .service-card.partner p{ color:rgba(255,255,255,0.65); }
-  .service-card.partner .icon{ background:rgba(255,255,255,0.12); }
-  .service-card.partner .tag{ display:inline-block; margin-top:12px; font-family:'Inter',sans-serif; font-size:11.5px; color:#D69A78; font-weight:600; }
-  @media(max-width:900px){ .services-grid{ grid-template-columns:1fr; } }
-
-  /* ---- Trato de tú a tú — differentiator banner ---- */
-  .promise{ max-width:1200px; margin:70px auto 0; padding:0 32px; text-align:center; }
-  .promise h2{ font-size:30px; max-width:680px; margin:0 auto; line-height:1.28; }
-  .promise h2 em{ font-style:italic; color:var(--clay); }
-  .promise .pillars{ display:flex; justify-content:center; gap:56px; margin-top:38px; flex-wrap:wrap; }
-  .promise .pillar{ max-width:220px; }
-  .promise .pillar .kicker{ color:var(--clay-deep); display:block; margin-bottom:8px; }
-  .promise .pillar p{ font-family:'Inter',sans-serif; font-size:13.5px; color:var(--gray); line-height:1.55; }
-
-  /* ---- Decoración: before/after + próximamente ---- */
-  .ba-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
-  .ba-pair{ display:grid; grid-template-columns:1fr 1fr; gap:6px; border-radius:14px; overflow:hidden; height:190px; }
-  .ba-pair div{ position:relative; }
-  .ba-pair span{ position:absolute; top:8px; left:8px; background:rgba(20,18,14,0.65); color:#fff; font-family:'Inter',sans-serif; font-size:10px; text-transform:uppercase; letter-spacing:.06em; padding:3px 8px; border-radius:20px; }
-  .ba-label{ font-family:'Inter',sans-serif; font-size:13.5px; color:var(--gray); margin-top:12px; text-align:center; }
-  .soon-card{ border:1.5px dashed var(--line); border-radius:16px; padding:34px; text-align:center; margin-top:20px; }
-  .soon-card .kicker{ color:var(--clay-deep); }
-  .soon-card h3{ font-size:20px; margin-top:10px; }
-  .soon-card p{ font-family:'Inter',sans-serif; font-size:14px; color:var(--gray); margin:10px auto 0; max-width:420px; line-height:1.55; }
-  .soon-card .btn{ margin-top:18px; opacity:.5; cursor:not-allowed; }
-
-  /* ---- Valuation ---- */
-  .valuation{
-    background:var(--ink); color:#fff; border-radius:24px; padding:76px 40px;
-    text-align:center; max-width:1136px; margin:0 auto;
-  }
-  .valuation .eyebrow{ color:#D69A78; font-family:'Inter',sans-serif; font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.03em; }
-  .valuation h2{ color:#fff; font-size:34px; margin-top:12px; }
-  .valuation p{ color:rgba(255,255,255,0.65); font-family:'Inter',sans-serif; font-size:15.5px; max-width:460px; margin:16px auto 0; line-height:1.55; }
-  .val-form{ max-width:440px; margin:34px auto 0; display:flex; flex-direction:column; gap:12px; }
-  .val-form input, .val-form select{
-    background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:10px;
-    padding:13px 15px; color:#fff; font-family:'Inter',sans-serif; font-size:14px;
-  }
-  .val-form input::placeholder{ color:rgba(255,255,255,0.45); }
-  .val-form .btn.primary{ margin-top:6px; }
-
-  /* ---- Footer ---- */
-  footer.site{ padding:46px 32px 24px; border-top:1px solid var(--line); }
-  .footer-grid{ max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:38px; font-family:'Inter',sans-serif; font-size:12.5px; }
-  .footer-grid .logo{ margin-bottom:12px; }
-  .footer-grid h4{ font-size:11.5px; color:var(--gray); font-weight:400; text-transform:uppercase; letter-spacing:.04em; margin-bottom:12px; }
-  .footer-grid a{ display:block; color:var(--ink); text-decoration:none; opacity:.78; margin-bottom:9px; }
-  .footer-bottom{ max-width:1200px; margin:24px auto 0; padding-top:18px; border-top:1px solid var(--line); font-family:'Inter',sans-serif; font-size:11.5px; color:var(--gray); display:flex; justify-content:space-between; }
-
-  /* ---- Listing toolbar ---- */
-  .toolbar{ display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto; padding:34px 32px 18px; }
-  .toolbar h2{ font-size:24px; }
-  .toolbar .count{ font-family:'Inter',sans-serif; font-size:13px; color:var(--gray); }
-
-  /* ---- Detail page ---- */
-  .breadcrumb{ font-family:'Inter',sans-serif; font-size:12.5px; color:var(--gray); padding:24px 32px 0; max-width:1200px; margin:0 auto; }
-  .detail-wrap{ max-width:1200px; margin:0 auto; padding:16px 32px 96px; display:grid; grid-template-columns:1.6fr 1fr; gap:52px; }
-  .gallery{ display:grid; grid-template-columns:1.5fr 1fr; grid-template-rows:1fr 1fr; gap:8px; height:450px; border-radius:16px; overflow:hidden; }
-  .gallery > div:first-child{ grid-row:1/3; }
-  .detail-title{ margin-top:28px; }
-  .detail-title .eyebrow{ font-family:'Inter',sans-serif; font-size:12.5px; color:var(--clay-deep); font-weight:600; text-transform:uppercase; letter-spacing:.03em; margin-bottom:8px; }
-  .detail-title h1{ font-size:28px; }
-  .detail-price{ font-family:'Fraunces',serif; font-size:23px; margin-top:10px; }
-  .detail-price span{ font-family:'Inter',sans-serif; font-size:14px; color:var(--gray); }
-  .spec-row{ display:flex; gap:28px; margin-top:24px; padding:20px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); font-family:'Inter',sans-serif; }
-  .spec-row div{ font-size:12px; color:var(--gray); }
-  .spec-row div b{ display:block; font-family:'Fraunces',serif; font-size:19px; color:var(--ink); font-weight:500; margin-bottom:2px; }
-  .desc{ margin-top:22px; font-family:'Inter',sans-serif; font-size:14.5px; line-height:1.72; color:#3A3F3A; max-width:600px; }
-  .map-block{ height:210px; border-radius:14px; margin-top:24px; background:var(--panel); display:flex; align-items:center; justify-content:center; font-family:'Inter',sans-serif; font-size:12.5px; color:var(--gray); }
-  .sidebar-card{ background:var(--panel); border-radius:16px; padding:24px; height:fit-content; position:sticky; top:96px; }
-  .sidebar-card .agent{ display:flex; gap:12px; align-items:center; margin-bottom:18px; }
-  .agent .avatar{ width:40px; height:40px; border-radius:50%; overflow:hidden; }
-  .agent .name{ font-family:'Fraunces',serif; font-size:14.5px; }
-  .agent .role{ font-family:'Inter',sans-serif; font-size:11.5px; color:var(--gray); }
-  .sidebar-card .btn{ width:100%; margin-bottom:10px; }
-
-  .note-pill{
-    position:fixed; bottom:20px; right:20px; z-index:150;
-    background:#fff; border:1px solid var(--line); border-radius:12px;
-    padding:15px 17px; max-width:265px; font-family:'Inter',sans-serif; font-size:12px; line-height:1.55; color:var(--gray);
-    box-shadow:0 20px 40px -20px rgba(35,42,46,0.3);
-  }
-  .note-pill b{ display:block; color:var(--ink); font-size:11px; margin-bottom:6px; font-weight:600; text-transform:uppercase; letter-spacing:.03em; }
-
-  @media(max-width:900px){
-    .hero h1{ font-size:36px; }
-    .grid, .why-list, .feature-row{ grid-template-columns:1fr; }
-    .feature-row.reverse{ direction:ltr; }
-    .search-bar{ grid-template-columns:1fr; }
-    .search-bar .field{ border-right:none; border-bottom:1px solid var(--line); }
-    header.site nav.site-links{ display:none; }
-    .footer-grid{ grid-template-columns:1fr 1fr; }
-    .detail-wrap{ grid-template-columns:1fr; }
-  }
-</style>
+<title>Casa Creativa Inmobiliaria — Valencia, Xàtiva y costa de Gandia</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <div class="proto-bar">
-    <div><span class="tag">FUNCIONAL</span> &nbsp; Casa Creativa Inmobiliaria — buscador y contacto ya funcionan</div>
-    <div class="proto-nav">
-      <button data-view="home" class="active">Inicio</button>
-      <button data-view="listado">Listado</button>
-      <button data-view="ficha">Ficha de inmueble</button>
-      <button data-view="vende">Vende tu casa</button>
-      <button data-view="decoracion">Decoración</button>
+<div class="proto-banner">🛠️ <b>Prototipo</b> — quitar esta franja antes de publicar de verdad</div>
+
+<header class="site">
+  <a class="logo" href="index.html">
+    <img src="https://static.wixstatic.com/media/0f9908_3acbf13766be43e99cfff28b6be20421~mv2.png" alt="Casa Creativa Inmobiliaria">
+    <div class="word">Casa Creativa</div>
+  </a>
+  <nav class="site-links">
+    <a href="comprar.html">Comprar</a>
+    <a href="alquilar.html">Alquilar</a>
+    <a href="vende.html">Vende tu casa</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+  <div class="header-actions">
+    <div class="lang-toggle"><span class="on">ES</span><span>EN</span></div>
+    <a class="btn outline" href="contacto.html">Contacto</a>
+  </div>
+</header>
+
+<section class="hero home">
+  <div class="eyebrow">Valencia · Xàtiva · Costa de Gandia</div>
+  <h1>Tu próxima casa, <em>entre el mar y el interior.</em></h1>
+  <p class="lede">Casas, pisos y fincas rurales en toda la provincia de Valencia. Te acompañamos en español e inglés, de principio a fin.</p>
+  <div class="hero-media">
+    <div class="frame">
+      <img src="https://images.unsplash.com/photo-1767045572136-868c9407818b?w=1600&q=80&auto=format&fit=crop" alt="Costa mediterránea">
+      <div class="overlay"><div><div class="loc">Costa de Valencia</div><div class="cap">De pueblos con puerto a calles con historia</div></div></div>
     </div>
   </div>
+</section>
 
-  <!-- ============ HOME ============ -->
-  <div class="view active" id="view-home">
-    <header class="site">
-      <div class="logo">
-        <img src="https://static.wixstatic.com/media/0f9908_3acbf13766be43e99cfff28b6be20421~mv2.png/v1/crop/x_68,y_0,w_365,h_475/fill/w_438,h_570,al_c,lg_1,q_85,enc_avif,quality_auto/%D0%BB%D0%BE%D0%B3%D0%BE_%D0%BC%D0%B0%D0%BB%D0%B5%D0%BD%D1%8C%D0%BA%D0%BE%D0%B5_%D0%BF%D1%80%D0%BE%D0%B7%D1%80%D0%B0%D1%87%D0%BD%D1%8B%D0%B9%D1%84%D0%BE%D0%BD.png" alt="Casa Creativa Inmobiliaria">
-        <div class="word">Casa Creativa</div>
-      </div>
-      <nav class="site-links">
-        <a>Comprar</a><a>Alquilar</a><a onclick="showView('vende')">Vende tu casa</a><a>Servicios</a><a>Nosotros</a><a>Contacto</a>
-      </nav>
-      <div class="header-actions">
-        <div class="lang-toggle"><span class="on">ES</span><span>EN</span></div>
-        <button class="btn outline">Contacto</button>
-      </div>
-    </header>
-
-    <section class="hero">
-      <div class="eyebrow">Valencia · Xàtiva · Costa de Gandia</div>
-      <h1>Tu próxima casa, <em>entre el mar y el interior.</em></h1>
-      <p class="lede">Casas, pisos y fincas rurales en toda la provincia de Valencia. Te acompañamos en español e inglés, de principio a fin.</p>
-      <div class="hero-ctas">
-        <button class="btn primary">Ver inmuebles</button>
-        <a class="btn link" onclick="showView('vende')">Vender mi vivienda</a>
-      </div>
-      <div class="hero-media">
-        <div class="frame">
-          <img src="https://images.unsplash.com/photo-1767045572136-868c9407818b?w=1600&q=80&auto=format&fit=crop" alt="Costa mediterránea">
-          <div class="overlay">
-            <div><div class="loc">Costa de Valencia</div><div class="cap">De pueblos con puerto a calles con historia</div></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="search-bar">
-      <div class="field"><label>Zona</label><select id="home-zona"><option value="">Todas las zonas</option><option value="Xàtiva">Xàtiva</option><option value="Cullera">Cullera</option><option value="Náquera">Náquera</option><option value="Alborache">Alborache</option><option value="Chella">Chella</option><option value="Favara">Favara</option></select></div>
-      <div class="field"><label>Tipo</label><select id="home-tipo"><option value="">Cualquier tipo</option><option>Piso</option><option>Casa / chalet</option><option>Finca rural</option></select></div>
-      <div class="field"><label>Precio máx.</label><select id="home-precio"><option value="">Sin límite</option><option value="150000">150.000 €</option><option value="300000">300.000 €</option></select></div>
-      <button class="btn primary" onclick="buscarDesdeHome()">Buscar</button>
-    </div>
-
-    <div class="promise">
-      <h2>Trato de <em>tú a tú</em>, del primer contacto hasta mucho después de entregar las llaves.</h2>
-      <div class="pillars">
-        <div class="pillar"><span class="kicker">Compradores e inquilinos</span><p>Un mismo agente te acompaña de principio a fin — nada de pasar de una persona a otra.</p></div>
-        <div class="pillar"><span class="kicker">Propietarios</span><p>Trato cercano y honesto en cada paso, desde la valoración hasta la firma.</p></div>
-        <div class="pillar"><span class="kicker">Después de la venta</span><p>Seguimos disponibles cuando nos necesites, no desaparecemos al cerrar el trato.</p></div>
-      </div>
-    </div>
-
-    <section class="section">
-      <div class="section-head">
-        <div class="eyebrow">Selección</div>
-        <h2>Inmuebles destacados</h2>
-        <p>Cartera real, sincronizada desde tu ficha de Idealista — sin duplicar trabajo.</p>
-      </div>
-      <div class="grid">
-        <div class="card" onclick="showView('ficha')">
-          <div class="thumb"><img src="https://images.unsplash.com/photo-1760235674447-fe0cc115b697?w=700&q=80&auto=format&fit=crop" alt="Xàtiva"></div>
-          <div class="price">193.000 €</div>
-          <div class="title">Piso con garaje y trastero, exterior</div>
-          <div class="loc">Xàtiva, Valencia</div>
-          <div class="specs"><span>3 hab.</span><span>153 m²</span><span>5ª planta</span></div>
-        </div>
-        <div class="card">
-          <div class="thumb"><img src="https://images.unsplash.com/photo-1767045572136-868c9407818b?w=700&q=80&auto=format&fit=crop" alt="Cullera"></div>
-          <div class="price">167.000 €</div>
-          <div class="title">Apartamento con vistas al mar y al castillo</div>
-          <div class="loc">Cullera, Valencia</div>
-          <div class="specs"><span>1 hab.</span><span>47 m²</span><span>5ª planta</span></div>
-        </div>
-        <div class="card">
-          <div class="thumb"><img src="https://images.unsplash.com/photo-1457079585111-4f7fc5d8a98b?w=700&q=80&auto=format&fit=crop" alt="Alborache"></div>
-          <div class="price">179.000 €</div>
-          <div class="title">Casa de campo legalizada con piscina</div>
-          <div class="loc">Alborache, Valencia</div>
-          <div class="specs"><span>5 hab.</span><span>160 m²</span><span>Terreno propio</span></div>
-        </div>
-        <div class="card">
-          <div class="thumb"><img src="https://images.unsplash.com/photo-1648425731270-ebd373a19149?w=700&q=80&auto=format&fit=crop" alt="Náquera"></div>
-          <div class="price">234.385 €</div>
-          <div class="title">Piso en residencial con piscina y garaje</div>
-          <div class="loc">Náquera, Valencia</div>
-          <div class="specs"><span>3 hab.</span><span>92 m²</span><span>2ª planta</span></div>
-        </div>
-        <div class="card">
-          <div class="thumb"><img src="https://images.unsplash.com/photo-1619381214782-3ae09a2ce563?w=700&q=80&auto=format&fit=crop" alt="Chella"></div>
-          <div class="price">383.000 €</div>
-          <div class="title">Chalet independiente con licencia turística</div>
-          <div class="loc">Chella, Valencia</div>
-          <div class="specs"><span>3 hab.</span><span>155 m²</span><span>19.000 m² parcela</span></div>
-        </div>
-        <div class="card">
-          <div class="thumb"><img src="https://images.unsplash.com/photo-1764526624453-db32c24eca55?w=700&q=80&auto=format&fit=crop" alt="Valencia"></div>
-          <div class="price">710.000 €</div>
-          <div class="title">Piso amueblado junto a Torres de Quart</div>
-          <div class="loc">Valencia centro</div>
-          <div class="specs"><span>4 hab.</span><span>171 m²</span><span>Centro histórico</span></div>
-        </div>
-      </div>
-      <div class="see-all"><a class="btn link" onclick="showView('listado')">Ver las 24 viviendas disponibles</a></div>
-    </section>
-
-    <div class="coverage">
-      <div class="eyebrow" style="color:var(--clay-deep); font-family:'Inter',sans-serif; font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.03em;">Zonas donde trabajamos</div>
-      <h2>De la costa al interior, sin perder de vista tu zona</h2>
-      <div class="towns">
-        <span>Vinaròs</span> · Castellón · <span>Xàtiva</span> · Interior · <span>Náquera</span> · Área metropolitana · <span>Valencia ciudad</span> · <span>Gandia</span> · <span>Cullera</span> · Costa
-      </div>
-    </div>
-
-    <div class="feature-row">
-      <div class="media"><img src="https://images.unsplash.com/photo-1619381214782-3ae09a2ce563?w=900&q=80&auto=format&fit=crop" alt="Vende tu casa"></div>
-      <div class="copy">
-        <div class="eyebrow">Para propietarios</div>
-        <h2>Valoración gratuita, sin compromiso.</h2>
-        <p>Visitamos tu vivienda y la comparamos con ventas reales de tu zona. Nada de precios automáticos genéricos.</p>
-        <a class="btn primary" onclick="showView('vende')" style="margin-top:22px; display:inline-flex;">Pedir valoración</a>
-      </div>
-    </div>
-    <div class="feature-row reverse">
-      <div class="media"><img src="https://images.unsplash.com/photo-1764526624453-db32c24eca55?w=900&q=80&auto=format&fit=crop" alt="Reformas"></div>
-      <div class="copy">
-        <div class="eyebrow">Servicios</div>
-        <h2>Certificado energético y reformas integrales.</h2>
-        <p>Gestionamos el certificado y el plano de tu vivienda, y te acompañamos con proyectos de reforma en 3D antes de decidir.</p>
-        <a class="btn link">Ver todos los servicios</a>
-      </div>
-    </div>
-
-    <section class="section tight">
-      <div class="section-head">
-        <div class="eyebrow">Por qué Casa Creativa</div>
-        <h2>Cercanía local, mirada internacional</h2>
-      </div>
-      <div class="why-list">
-        <div class="why-item"><h3>Atención bilingüe</h3><p>Acompañamos tanto a compradores locales como a la comunidad internacional que busca vivienda en la Comunidad Valenciana.</p></div>
-        <div class="why-item"><h3>Cartera verificada</h3><p>Inmuebles reales, publicados y actualizados en Idealista, Fotocasa y Habitaclia — visibles también aquí.</p></div>
-        <div class="why-item"><h3>Servicio integral</h3><p>Certificado energético, reformas con proyecto 3D y seguro de impagos incluido en tu exclusiva de alquiler.</p></div>
-      </div>
-    </section>
-
-    <section class="section tight">
-      <div class="section-head">
-        <div class="eyebrow">Servicios</div>
-        <h2>Todo lo que necesitas, en un mismo sitio</h2>
-        <p>Además de ayudarte a comprar, alquilar o vender, te acompañamos en todo lo que rodea a tu vivienda.</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card"><div class="icon">🛡️</div><h3>Seguro de impago</h3><p>Protección para propietarios que alquilan, ante posibles impagos del inquilino.</p></div>
-        <div class="service-card"><div class="icon">🏠</div><h3>Seguro de hogar</h3><p>Cobertura para tu vivienda, tanto si vives en ella como si la alquilas.</p></div>
-        <div class="service-card"><div class="icon">📜</div><h3>Tramitación de herencias</h3><p>Te acompañamos en todo el proceso legal y administrativo de una herencia con inmuebles.</p></div>
-        <div class="service-card"><div class="icon">📐</div><h3>Tasaciones</h3><p>Valoración oficial de tu vivienda, útil para venta, herencia o hipoteca.</p></div>
-        <div class="service-card"><div class="icon">⚡</div><h3>Certificado de eficiencia energética</h3><p>Obligatorio para vender o alquilar — lo gestionamos por ti de principio a fin.</p></div>
-        <div class="service-card partner"><div class="icon">🔧</div><h3>Reformas y reparaciones</h3><p>Gestionamos reformas y reparaciones para viviendas, locales y más, con profesionales de confianza.</p></div>
-      </div>
-    </section>
-
-    <section class="section tight">
-      <div class="valuation">
-        <div class="eyebrow">Para propietarios</div>
-        <h2>¿Cuánto vale tu vivienda hoy?</h2>
-        <p>Un agente que conoce tu zona palmo a palmo, no un algoritmo genérico.</p>
-        <div class="val-form">
-          <input id="val-direccion" placeholder="Dirección de la vivienda">
-          <select id="val-tipo"><option value="">Tipo de vivienda</option><option>Piso</option><option>Casa / chalet</option><option>Finca rural</option></select>
-          <input id="val-telefono" placeholder="Teléfono de contacto">
-          <button class="btn primary" onclick="enviarValoracion()">Pedir valoración gratuita</button>
-        </div>
-      </div>
-    </section>
-
-    <footer class="site">
-      <div class="footer-grid">
-        <div>
-          <div class="logo"><img src="https://static.wixstatic.com/media/0f9908_3acbf13766be43e99cfff28b6be20421~mv2.png/v1/crop/x_68,y_0,w_365,h_475/fill/w_438,h_570,al_c,lg_1,q_85,enc_avif,quality_auto/%D0%BB%D0%BE%D0%B3%D0%BE_%D0%BC%D0%B0%D0%BB%D0%B5%D0%BD%D1%8C%D0%BA%D0%BE%D0%B5_%D0%BF%D1%80%D0%BE%D0%B7%D1%80%D0%B0%D1%87%D0%BD%D1%8B%D0%B9%D1%84%D0%BE%D0%BD.png" alt="" style="width:28px;height:28px;"><div class="word" style="font-size:16px;">Casa Creativa</div></div>
-          <p style="color:var(--gray); max-width:260px; line-height:1.6;">Litógrafo Pascual i Abad 31, València · Atendemos en español e inglés.</p>
-        </div>
-        <div><h4>Inmuebles</h4><a>Comprar</a><a>Alquilar</a><a>Obra nueva</a></div>
-        <div><h4>Agencia</h4><a>Servicios</a><a>Vende tu casa</a><a>Nosotros</a></div>
-        <div><h4>Trabajamos con</h4><a>Idealista</a><a>Fotocasa</a><a>Habitaclia</a></div>
-      </div>
-      <div class="footer-bottom"><span>© 2026 Casa Creativa Inmobiliaria</span><span>Legal · Privacidad · Cookies</span></div>
-    </footer>
+<div class="search-bar">
+  <div class="field"><label>Zona</label>
+    <select id="home-zona"><option value="">Todas las zonas</option><option>Xàtiva</option><option>Cullera</option><option>Náquera</option><option>Alborache</option><option>Chella</option><option>Favara</option><option>Valencia</option></select>
   </div>
+  <div class="field"><label>Tipo</label>
+    <select id="home-tipo"><option value="">Cualquier tipo</option><option>Piso</option><option>Casa / chalet</option></select>
+  </div>
+  <div class="field"><label>Precio máx.</label>
+    <select id="home-precio"><option value="">Sin límite</option><option value="150000">150.000 €</option><option value="300000">300.000 €</option></select>
+  </div>
+  <button class="btn primary" onclick="buscarDesdeHome()">Buscar</button>
+</div>
 
-  <!-- ============ LISTADO ============ -->
-  <div class="view" id="view-listado">
-    <header class="site">
-      <div class="logo"><img src="https://static.wixstatic.com/media/0f9908_3acbf13766be43e99cfff28b6be20421~mv2.png/v1/crop/x_68,y_0,w_365,h_475/fill/w_438,h_570,al_c,lg_1,q_85,enc_avif,quality_auto/%D0%BB%D0%BE%D0%B3%D0%BE_%D0%BC%D0%B0%D0%BB%D0%B5%D0%BD%D1%8C%D0%BA%D0%BE%D0%B5_%D0%BF%D1%80%D0%BE%D0%B7%D1%80%D0%B0%D1%87%D0%BD%D1%8B%D0%B9%D1%84%D0%BE%D0%BD.png" alt=""><div class="word">Casa Creativa</div></div>
-      <nav class="site-links"><a>Comprar</a><a>Alquilar</a><a>Vende tu casa</a><a>Servicios</a><a>Nosotros</a><a>Contacto</a></nav>
-      <div class="header-actions"><div class="lang-toggle"><span class="on">ES</span><span>EN</span></div></div>
-    </header>
-    <div class="search-bar" style="margin-top:32px;">
-      <div class="field"><label>Zona</label><select id="filtro-zona"><option value="">Todas las zonas</option><option value="Xàtiva">Xàtiva</option><option value="Cullera">Cullera</option><option value="Alborache">Alborache</option><option value="Náquera">Náquera</option><option value="Chella">Chella</option><option value="Favara">Favara</option></select></div>
-      <div class="field"><label>Habitaciones</label><select id="filtro-hab"><option value="0">Cualquiera</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select></div>
-      <div class="field"><label>Precio</label><select id="filtro-precio"><option value="">Sin límite</option><option value="150000">Hasta 150.000 €</option><option value="200000">Hasta 200.000 €</option><option value="300000">Hasta 300.000 €</option><option value="400000">Hasta 400.000 €</option></select></div>
-      <button class="btn primary" onclick="filtrarListado()">Filtrar</button>
-    </div>
-    <div class="toolbar"><h2 id="listado-titulo">24 viviendas en venta</h2><div class="count">Ordenar por: Relevancia</div></div>
-    <div class="section" style="padding-top:20px;">
-      <div class="grid" id="grid-listado">
-        <div class="card" data-zona="Xàtiva" data-precio="193000" data-hab="3" onclick="showView('ficha')"><div class="thumb"><img src="https://images.unsplash.com/photo-1760235674447-fe0cc115b697?w=700&q=80&auto=format&fit=crop"></div><div class="price">193.000 €</div><div class="title">Piso con garaje y piscina comunitaria</div><div class="loc">Xàtiva</div></div>
-        <div class="card" data-zona="Cullera" data-precio="167000" data-hab="1"><div class="thumb"><img src="https://images.unsplash.com/photo-1767045572136-868c9407818b?w=700&q=80&auto=format&fit=crop"></div><div class="price">167.000 €</div><div class="title">Apartamento con vistas al mar</div><div class="loc">Cullera</div></div>
-        <div class="card" data-zona="Alborache" data-precio="179000" data-hab="5"><div class="thumb"><img src="https://images.unsplash.com/photo-1457079585111-4f7fc5d8a98b?w=700&q=80&auto=format&fit=crop"></div><div class="price">179.000 €</div><div class="title">Casa rural con piscina y terreno</div><div class="loc">Alborache</div></div>
-        <div class="card" data-zona="Náquera" data-precio="234385" data-hab="3"><div class="thumb"><img src="https://images.unsplash.com/photo-1648425731270-ebd373a19149?w=700&q=80&auto=format&fit=crop"></div><div class="price">234.385 €</div><div class="title">Piso en residencial con piscina</div><div class="loc">Náquera</div></div>
-        <div class="card" data-zona="Chella" data-precio="383000" data-hab="3"><div class="thumb"><img src="https://images.unsplash.com/photo-1619381214782-3ae09a2ce563?w=700&q=80&auto=format&fit=crop"></div><div class="price">383.000 €</div><div class="title">Chalet con licencia turística</div><div class="loc">Chella</div></div>
-        <div class="card" data-zona="Favara" data-precio="124000" data-hab="4"><div class="thumb"><img src="https://images.unsplash.com/photo-1764526624453-db32c24eca55?w=700&q=80&auto=format&fit=crop"></div><div class="price">124.000 €</div><div class="title">Casa con gran potencial de reforma</div><div class="loc">Favara</div></div>
-      </div>
-      <p id="sin-resultados" style="display:none; text-align:center; font-family:'Inter',sans-serif; color:var(--gray); padding:40px 0;">No hay inmuebles que coincidan con esos filtros. Prueba a ampliar la búsqueda.</p>
+<div class="promise">
+  <h2>Trato de <em>tú a tú</em>, del primer contacto hasta mucho después de entregar las llaves.</h2>
+  <div class="pillars">
+    <div class="pillar"><span class="kicker">Compradores e inquilinos</span><p>Un mismo agente te acompaña de principio a fin.</p></div>
+    <div class="pillar"><span class="kicker">Propietarios</span><p>Trato cercano y honesto en cada paso, desde la valoración hasta la firma.</p></div>
+    <div class="pillar"><span class="kicker">Después de la venta</span><p>Seguimos disponibles cuando nos necesites.</p></div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-head">
+    <div class="eyebrow">Selección</div>
+    <h2>Inmuebles destacados</h2>
+    <p>Cartera real, sincronizada desde tu ficha de Idealista — sin duplicar trabajo.</p>
+  </div>
+  <div class="grid" id="grid-destacados"></div>
+  <div style="text-align:center; margin-top:44px;"><a class="btn link" href="comprar.html">Ver todas las viviendas en venta</a></div>
+</section>
+
+<div style="text-align:center; padding:32px; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="eyebrow" style="margin:0;">Publicado también en</div>
+  <div style="display:flex; justify-content:center; gap:40px; margin-top:14px; font-family:'Fraunces',serif; font-size:16px;">
+    <span>Idealista</span><span>Fotocasa</span><span>Habitaclia</span>
+  </div>
+</div>
+
+<div class="coverage">
+  <div class="eyebrow" style="color:var(--clay-deep);">Zonas donde trabajamos</div>
+  <h2>De la costa al interior, sin perder de vista tu zona</h2>
+  <div class="towns"><span>Vinaròs</span> · Castellón · <span>Xàtiva</span> · Interior · <span>Náquera</span> · Área metropolitana · <span>Valencia ciudad</span> · <span>Gandia</span> · <span>Cullera</span> · Costa</div>
+</div>
+
+<div class="feature-row">
+  <div class="media"><img src="https://images.unsplash.com/photo-1619381214782-3ae09a2ce563?w=900&q=80&auto=format&fit=crop" alt="Vende tu casa"></div>
+  <div class="copy">
+    <div class="eyebrow">Para propietarios</div>
+    <h2>Valoración gratuita, sin compromiso.</h2>
+    <p>Visitamos tu vivienda y la comparamos con ventas reales de tu zona. Nada de precios automáticos genéricos.</p>
+    <a class="btn primary" href="vende.html" style="margin-top:20px; display:inline-flex;">Pedir valoración</a>
+  </div>
+</div>
+
+<section class="section tight">
+  <div class="section-head">
+    <div class="eyebrow">Por qué Casa Creativa</div>
+    <h2>Cercanía local, mirada internacional</h2>
+  </div>
+  <div class="why-list">
+    <div class="why-item"><h3>Atención bilingüe</h3><p>Acompañamos tanto a compradores locales como a la comunidad internacional que busca vivienda en la Comunidad Valenciana.</p></div>
+    <div class="why-item"><h3>Cartera verificada</h3><p>Inmuebles reales, publicados y actualizados en Idealista, Fotocasa y Habitaclia — visibles también aquí.</p></div>
+    <div class="why-item"><h3>Servicio integral</h3><p>Certificado energético, tasaciones, seguros y gestión de herencias, todo en un mismo lugar.</p></div>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="valuation">
+    <div class="eyebrow">Para propietarios</div>
+    <h2>¿Cuánto vale tu vivienda hoy?</h2>
+    <p>Un agente que conoce tu zona palmo a palmo, no un algoritmo genérico.</p>
+    <div class="val-form">
+      <input id="home-val-direccion" placeholder="Dirección de la vivienda">
+      <select id="home-val-tipo"><option value="">Tipo de vivienda</option><option>Piso</option><option>Casa / chalet</option><option>Finca rural</option></select>
+      <input id="home-val-telefono" placeholder="Teléfono de contacto">
+      <button class="btn primary" onclick="enviarValoracion('home-val')">Pedir valoración gratuita</button>
     </div>
   </div>
+</section>
 
-  <!-- ============ FICHA ============ -->
-  <div class="view" id="view-ficha">
-    <header class="site">
-      <div class="logo"><img src="https://static.wixstatic.com/media/0f9908_3acbf13766be43e99cfff28b6be20421~mv2.png/v1/crop/x_68,y_0,w_365,h_475/fill/w_438,h_570,al_c,lg_1,q_85,enc_avif,quality_auto/%D0%BB%D0%BE%D0%B3%D0%BE_%D0%BC%D0%B0%D0%BB%D0%B5%D0%BD%D1%8C%D0%BA%D0%BE%D0%B5_%D0%BF%D1%80%D0%BE%D0%B7%D1%80%D0%B0%D1%87%D0%BD%D1%8B%D0%B9%D1%84%D0%BE%D0%BD.png" alt=""><div class="word">Casa Creativa</div></div>
-      <nav class="site-links"><a>Comprar</a><a>Alquilar</a><a>Vende tu casa</a><a>Servicios</a><a>Nosotros</a><a>Contacto</a></nav>
-      <div class="header-actions"><div class="lang-toggle"><span class="on">ES</span><span>EN</span></div></div>
-    </header>
-    <div class="breadcrumb">Comprar / Valencia / Xàtiva / <span style="color:var(--ink);">Piso con garaje y trastero</span></div>
-    <div class="detail-wrap">
-      <div>
-        <div class="gallery">
-          <div><img src="https://images.unsplash.com/photo-1760235674447-fe0cc115b697?w=900&q=80&auto=format&fit=crop"></div>
-          <div><img src="https://images.unsplash.com/photo-1648425731270-ebd373a19149?w=500&q=80&auto=format&fit=crop"></div>
-          <div><img src="https://images.unsplash.com/photo-1764526624453-db32c24eca55?w=500&q=80&auto=format&fit=crop"></div>
-        </div>
-        <div class="detail-title">
-          <div class="eyebrow">Xàtiva · Conjunto residencial con piscina</div>
-          <h1>Piso con garaje y trastero, 5ª planta exterior</h1>
-          <div class="detail-price">193.000 € <span>· 1.261 €/m²</span></div>
-        </div>
-        <div class="spec-row">
-          <div><b>3</b>Habitaciones</div>
-          <div><b>153 m²</b>Superficie</div>
-          <div><b>5ª</b>Planta, exterior</div>
-          <div><b>Sí</b>Ascensor</div>
-          <div><b>Sí</b>Garaje incluido</div>
-        </div>
-        <p class="desc">Vivienda situada en una de las mejores zonas de Xàtiva, dentro de un conjunto residencial con piscina — ideal para quienes buscan tranquilidad, comodidad y calidad de vida sin renunciar a estar cerca del centro histórico y del castillo.</p>
-        <div class="map-block">Mapa interactivo — ubicación aproximada</div>
-      </div>
-      <div class="sidebar-card">
-        <div class="agent"><div class="avatar"><img src="https://images.unsplash.com/photo-1648425731270-ebd373a19149?w=100&q=80&auto=format&fit=crop"></div><div><div class="name">Equipo Casa Creativa</div><div class="role">Agencia local · Valencia</div></div></div>
-        <button class="btn primary" onclick="contactarFicha('info')">Contactar por WhatsApp</button>
-        <button class="btn outline" onclick="contactarFicha('visita')">Solicitar visita</button>
-        <div style="margin-top:16px; font-family:'Inter',sans-serif; font-size:12px; color:var(--gray); line-height:1.6;">También publicado en Idealista, Fotocasa y Habitaclia.</div>
-      </div>
+<footer class="site">
+  <div class="footer-grid">
+    <div>
+      <div class="logo" style="margin-bottom:10px;"><img src="https://static.wixstatic.com/media/0f9908_3acbf13766be43e99cfff28b6be20421~mv2.png" style="width:26px;height:26px;"><div class="word" style="font-size:15px;">Casa Creativa</div></div>
+      <p style="color:var(--gray); max-width:260px; line-height:1.6;">Litógrafo Pascual i Abad 31, València · Atendemos en español e inglés.</p>
     </div>
+    <div><h4>Inmuebles</h4><a href="comprar.html">Comprar</a><a href="alquilar.html">Alquilar</a></div>
+    <div><h4>Agencia</h4><a href="servicios.html">Servicios</a><a href="vende.html">Vende tu casa</a><a href="nosotros.html">Nosotros</a></div>
+    <div><h4>Trabajamos con</h4><a href="#">Idealista</a><a href="#">Fotocasa</a><a href="#">Habitaclia</a></div>
   </div>
+  <div class="footer-bottom"><span>© 2026 Casa Creativa Inmobiliaria</span><span>Legal · Privacidad · Cookies</span></div>
+</footer>
 
-  <!-- ============ VENDE TU CASA ============ -->
-  <div class="view" id="view-vende">
-    <header class="site">
-      <div class="logo"><img src="https://static.wixstatic.com/media/0f9908_3acbf13766be43e99cfff28b6be20421~mv2.png/v1/crop/x_68,y_0,w_365,h_475/fill/w_438,h_570,al_c,lg_1,q_85,enc_avif,quality_auto/%D0%BB%D0%BE%D0%B3%D0%BE_%D0%BC%D0%B0%D0%BB%D0%B5%D0%BD%D1%8C%D0%BA%D0%BE%D0%B5_%D0%BF%D1%80%D0%BE%D0%B7%D1%80%D0%B0%D1%87%D0%BD%D1%8B%D0%B9%D1%84%D0%BE%D0%BD.png" alt=""><div class="word">Casa Creativa</div></div>
-      <nav class="site-links"><a>Comprar</a><a>Alquilar</a><a>Vende tu casa</a><a>Servicios</a><a>Nosotros</a><a>Contacto</a></nav>
-      <div class="header-actions"><div class="lang-toggle"><span class="on">ES</span><span>EN</span></div></div>
-    </header>
-    <section class="hero" style="padding-top:68px;">
-      <div class="eyebrow">Para propietarios</div>
-      <h1 style="font-size:44px;">Vende o alquila tu vivienda, <em>sin sorpresas.</em></h1>
-      <p class="lede">Valoración gratuita, fotografía profesional y publicación simultánea en los principales portales.</p>
-      <div class="hero-media">
-        <div class="frame" style="height:400px;">
-          <img src="https://images.unsplash.com/photo-1619381214782-3ae09a2ce563?w=1600&q=80&auto=format&fit=crop">
-        </div>
-      </div>
-    </section>
-    <div class="search-bar" style="grid-template-columns:1fr 1fr 1fr auto;">
-      <div class="field"><label>Dirección</label><input id="vende-direccion" placeholder="Calle, municipio" style="border:none; font-family:'Inter',sans-serif; font-size:14px; width:100%; padding:0; background:none;"></div>
-      <div class="field"><label>Operación</label><select id="vende-operacion"><option>Vender</option><option>Alquilar</option></select></div>
-      <div class="field"><label>Teléfono</label><input id="vende-telefono" placeholder="+34" style="border:none; font-family:'Inter',sans-serif; font-size:14px; width:100%; padding:0; background:none;"></div>
-      <button class="btn primary" onclick="enviarVende()">Solicitar valoración</button>
-    </div>
-    <section class="section tight">
-      <div class="why-list">
-        <div class="why-item"><h3>01 · Valoración con un agente real</h3><p>Visitamos tu vivienda y comparamos con ventas recientes en tu misma zona.</p></div>
-        <div class="why-item"><h3>02 · Certificado energético incluido</h3><p>Gestionamos el certificado y el plano de tu vivienda, obligatorios para publicar.</p></div>
-        <div class="why-item"><h3>03 · Publicación en todos los portales</h3><p>Tu anuncio se sincroniza en Idealista, Fotocasa, Habitaclia y esta web.</p></div>
-      </div>
-    </section>
-  </div>
+<div class="note-pill"><b>⚠️ Antes de publicar</b> Cambia <code>WHATSAPP_NUMERO</code> en main.js por el número real. Fotos y logo son de referencia.</div>
 
-  <!-- ============ DECORACIÓN ============ -->
-  <div class="view" id="view-decoracion">
-    <header class="site">
-      <div class="logo"><img src="https://static.wixstatic.com/media/0f9908_3acbf13766be43e99cfff28b6be20421~mv2.png/v1/crop/x_68,y_0,w_365,h_475/fill/w_438,h_570,al_c,lg_1,q_85,enc_avif,quality_auto/%D0%BB%D0%BE%D0%B3%D0%BE_%D0%BC%D0%B0%D0%BB%D0%B5%D0%BD%D1%8C%D0%BA%D0%BE%D0%B5_%D0%BF%D1%80%D0%BE%D0%B7%D1%80%D0%B0%D1%87%D0%BD%D1%8B%D0%B9%D1%84%D0%BE%D0%BD.png" alt=""><div class="word">Casa Creativa</div></div>
-      <nav class="site-links"><a>Comprar</a><a>Alquilar</a><a>Vende tu casa</a><a>Servicios</a><a>Nosotros</a><a>Contacto</a></nav>
-      <div class="header-actions"><div class="lang-toggle"><span class="on">ES</span><span>EN</span></div></div>
-    </header>
-    <section class="hero" style="padding-top:68px;">
-      <div class="eyebrow">Vaciado y decoración</div>
-      <h1 style="font-size:44px;">Preparamos tu vivienda <em>para vender o alquilar mejor.</em></h1>
-      <p class="lede">Vaciado de muebles y decoración pensada para que tu inmueble luzca a su mejor versión — clave para vender o alquilar más rápido.</p>
-    </section>
-    <section class="section tight">
-      <div class="section-head">
-        <div class="eyebrow">Antes y después</div>
-        <h2>Algunos ejemplos reales</h2>
-      </div>
-      <div class="ba-grid">
-        <div><div class="ba-pair">
-          <div><img src="https://images.unsplash.com/photo-1457079585111-4f7fc5d8a98b?w=400&q=80&auto=format&fit=crop"><span>Antes</span></div>
-          <div><img src="https://images.unsplash.com/photo-1648425731270-ebd373a19149?w=400&q=80&auto=format&fit=crop"><span>Después</span></div>
-        </div><div class="ba-label">Salón · Xàtiva</div></div>
-        <div><div class="ba-pair">
-          <div><img src="https://images.unsplash.com/photo-1619381214782-3ae09a2ce563?w=400&q=80&auto=format&fit=crop"><span>Antes</span></div>
-          <div><img src="https://images.unsplash.com/photo-1764526624453-db32c24eca55?w=400&q=80&auto=format&fit=crop"><span>Después</span></div>
-        </div><div class="ba-label">Cocina · Cullera</div></div>
-        <div><div class="ba-pair">
-          <div><img src="https://images.unsplash.com/photo-1760235674447-fe0cc115b697?w=400&q=80&auto=format&fit=crop"><span>Antes</span></div>
-          <div><img src="https://images.unsplash.com/photo-1767045572136-868c9407818b?w=400&q=80&auto=format&fit=crop"><span>Después</span></div>
-        </div><div class="ba-label">Fachada · Náquera</div></div>
-      </div>
-      <div class="soon-card">
-        <div class="kicker">Próximamente</div>
-        <h3>Tienda de decoración</h3>
-        <p>Compra directa de las piezas de decoración que usamos en nuestros proyectos. Esta función se activará más adelante.</p>
-        <button class="btn primary">Ver productos (próximamente)</button>
-      </div>
-    </section>
-  </div>
-
-  <div class="note-pill">
-    <b>⚠️ Antes de publicar</b>
-    Los botones de contacto y valoración ya funcionan de verdad (abren WhatsApp con el mensaje armado), pero usan un número de prueba. Búscalo en el código como <code>WHATSAPP_NUMERO</code> y cámbialo por el real de la agencia. El buscador también filtra de verdad. Fotos y logo siguen siendo de referencia.
-  </div>
-
+<script src="propiedades.js"></script>
+<script src="main.js"></script>
 <script>
-  // ⚠️ CAMBIA ESTE NÚMERO por el WhatsApp real de la agencia (formato: código país + número, sin +, sin espacios)
-  const WHATSAPP_NUMERO = "34600000000";
-
-  function abrirWhatsApp(mensaje){
-    const url = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensaje)}`;
-    window.open(url, '_blank');
-  }
-
-  function showView(name){
-    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
-    document.getElementById('view-'+name).classList.add('active');
-    document.querySelectorAll('.proto-nav button').forEach(b=>b.classList.toggle('active', b.dataset.view===name));
-    window.scrollTo({top:0, behavior:'instant'});
-  }
-  document.querySelectorAll('.proto-nav button').forEach(b=>{
-    b.addEventListener('click', ()=>showView(b.dataset.view));
-  });
-
-  // ---- Buscador / filtros reales ----
-  function filtrarListado(){
-    const zona = document.getElementById('filtro-zona').value;
-    const hab = parseInt(document.getElementById('filtro-hab').value || "0", 10);
-    const precioMax = document.getElementById('filtro-precio').value;
-    const cards = document.querySelectorAll('#grid-listado .card');
-    let visibles = 0;
-    cards.forEach(card=>{
-      const cZona = card.dataset.zona;
-      const cPrecio = parseInt(card.dataset.precio, 10);
-      const cHab = parseInt(card.dataset.hab, 10);
-      let ok = true;
-      if(zona && cZona !== zona) ok = false;
-      if(hab && cHab < hab) ok = false;
-      if(precioMax && cPrecio > parseInt(precioMax, 10)) ok = false;
-      card.style.display = ok ? '' : 'none';
-      if(ok) visibles++;
-    });
-    document.getElementById('listado-titulo').textContent = `${visibles} vivienda${visibles===1?'':'s'} encontrada${visibles===1?'':'s'}`;
-    document.getElementById('sin-resultados').style.display = visibles===0 ? 'block' : 'none';
-  }
+  pintarGrid('grid-destacados', PROPIEDADES.filter(p => p.operacion === 'venta').slice(0, 6));
 
   function buscarDesdeHome(){
     const zona = document.getElementById('home-zona').value;
+    const tipo = document.getElementById('home-tipo').value;
     const precio = document.getElementById('home-precio').value;
-    showView('listado');
-    // Sincroniza los filtros del listado con lo elegido en la home
-    setTimeout(()=>{
-      if(document.getElementById('filtro-zona')) document.getElementById('filtro-zona').value = zona;
-      if(document.getElementById('filtro-precio')) document.getElementById('filtro-precio').value = precio;
-      filtrarListado();
-    }, 50);
-  }
-
-  // ---- Formularios → WhatsApp (sin backend, 100% gratis) ----
-  function enviarValoracion(){
-    const dir = document.getElementById('val-direccion').value.trim();
-    const tipo = document.getElementById('val-tipo').value;
-    const tel = document.getElementById('val-telefono').value.trim();
-    if(!dir || !tel){ alert('Por favor completa la dirección y el teléfono.'); return; }
-    const msg = `Hola! Quiero pedir una valoración gratuita.\nDirección: ${dir}\nTipo de vivienda: ${tipo || 'no especificado'}\nMi teléfono: ${tel}`;
-    abrirWhatsApp(msg);
-  }
-
-  function enviarVende(){
-    const dir = document.getElementById('vende-direccion').value.trim();
-    const op = document.getElementById('vende-operacion').value;
-    const tel = document.getElementById('vende-telefono').value.trim();
-    if(!dir || !tel){ alert('Por favor completa la dirección y el teléfono.'); return; }
-    const msg = `Hola! Quiero ${op.toLowerCase()} mi vivienda.\nDirección: ${dir}\nMi teléfono: ${tel}`;
-    abrirWhatsApp(msg);
-  }
-
-  function contactarFicha(tipo){
-    const propiedad = document.querySelector('#view-ficha h1').textContent.trim();
-    const msg = tipo === 'visita'
-      ? `Hola! Quisiera agendar una visita para: ${propiedad}`
-      : `Hola! Me interesa más información sobre: ${propiedad}`;
-    abrirWhatsApp(msg);
+    const params = new URLSearchParams();
+    if(zona) params.set('zona', zona);
+    if(tipo) params.set('tipo', tipo);
+    if(precio) params.set('precio', precio);
+    window.location.href = 'comprar.html?' + params.toString();
   }
 </script>
 </body>
