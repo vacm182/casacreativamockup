@@ -101,4 +101,11 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('nav.site-links a').forEach(a=>{
     if(a.getAttribute('href') === actual) a.classList.add('active');
   });
+
+  // Menú hamburguesa (móvil)
+  const toggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('site-nav');
+  if(toggle && nav){
+    toggle.addEventListener('click', () => nav.classList.toggle('open'));
+  }
 });
