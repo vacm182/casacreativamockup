@@ -83,7 +83,9 @@
           <div><b>${p.garaje}</b>Garaje</div>
         </div>
         <p class="desc">${p.desc}</p>
-        <div class="map-block">Mapa interactivo — ubicación aproximada</div>
+        <div class="map-block">
+          <iframe src="https://www.google.com/maps?q=${encodeURIComponent(p.zona + ', Valencia, España')}&output=embed" loading="lazy" allowfullscreen></iframe>
+        </div>
       </div>
       <div class="sidebar-card">
         <div class="agent">
