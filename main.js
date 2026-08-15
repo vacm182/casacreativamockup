@@ -4,7 +4,7 @@
 
 // ⚠️ CAMBIA ESTE NÚMERO por el WhatsApp real de la agencia
 // Formato: código de país + número, SIN "+" y SIN espacios. Ej: 34612345678
-const WHATSAPP_NUMERO = "+34660602633";
+const WHATSAPP_NUMERO = "34660602633";
 
 function abrirWhatsApp(mensaje){
   const url = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensaje)}`;
