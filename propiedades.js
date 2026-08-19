@@ -21,6 +21,19 @@
 // inventar datos.
 // =====================================================================
 
+// =====================================================================
+// PROPIEDADES.JS — CASA CREATIVA INMOBILIARIA
+//
+// Datos actualizados a partir de los anuncios de Idealista proporcionados.
+// operacion: "venta"
+// imgs: URLs de imágenes de Idealista
+//
+// NOTA:
+// El inmueble 110336965 no está devolviendo actualmente información
+// indexable fiable en Idealista. Se conserva como pendiente para evitar
+// inventar datos.
+// =====================================================================
+
 const PROPIEDADES = [
 
   // ================================================================
