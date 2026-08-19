@@ -91,5 +91,85 @@ const PROPIEDADES = [
     imgs: [
       "https://img4.idealista.com/blur/WEB_DETAIL/0/id.pro.es.image.master/ef/89/95/1461218266.jpg"
     ]
+  },
+  {
+    id: "cullera-piso-1",
+    operacion: "venta",
+    zona: "Cullera",
+    tipo: "Piso",
+    precio: 157000,
+    precioTexto: "157.000 €",
+    hab: 1,
+    m2: 47,
+    planta: "5ª planta exterior",
+    ascensor: "Sí",
+    garaje: "No",
+    titulo: "Apartamento con terraza y vistas al castillo y al mar",
+    tituloEn: "Apartment with terrace and castle and sea views",
+    desc: "Apartamento tipo loft muy luminoso en Cullera, con amplia terraza y vistas espectaculares al Castillo de Cullera, la montaña y el mar Mediterráneo. Posibilidad de crear un dormitorio independiente con puerta corredera. Edificio con 2 ascensores.",
+    descEn: "A bright loft-style apartment in Cullera with a large terrace and spectacular views of Cullera Castle, the mountains and the Mediterranean Sea. Can be divided into a separate bedroom with a sliding door. Building with 2 lifts.",
+    imgs: [
+      "https://img4.idealista.com/blur/WEB_DETAIL/0/id.pro.es.image.master/66/92/a5/1461220353.jpg"
+    ]
+  },
+  {
+    id: "alborache-casa-1",
+    operacion: "venta",
+    zona: "Alborache",
+    tipo: "Casa / chalet",
+    precio: 169000,
+    precioTexto: "169.000 €",
+    hab: 5,
+    m2: 160,
+    planta: "2 plantas",
+    ascensor: "No",
+    garaje: "No",
+    titulo: "Casa rural legalizada con piscina y terreno de cultivo",
+    tituloEn: "Legalised country house with pool and cultivated land",
+    desc: "Casa rural totalmente legalizada en Alborache, con parcela de 2.700 m², huerto con árboles frutales, piscina privada, panel solar y agua de riego propia. 5 habitaciones repartidas en dos plantas, terraza con vistas a la montaña.",
+    descEn: "A fully legalised country house in Alborache, on a 2,700 m² plot with a fruit-tree orchard, private pool, solar panel and its own irrigation water. 5 bedrooms across two floors, and a terrace with mountain views.",
+    imgs: [
+      "https://img4.idealista.com/blur/WEB_DETAIL/0/id.pro.es.image.master/38/97/c7/1436160855.jpg"
+    ]
+  },
+  {
+    id: "antella-piso-1",
+    operacion: "venta",
+    zona: "Antella",
+    tipo: "Piso",
+    precio: 109000,
+    precioTexto: "109.000 €",
+    hab: 4,
+    m2: 112,
+    planta: "1ª planta exterior",
+    ascensor: "No",
+    garaje: "Sí",
+    titulo: "Piso amplio con garaje y vistas al Assut de Antella",
+    tituloEn: "Spacious apartment with garage and views of the Assut de Antella",
+    desc: "Vivienda amplia y luminosa en Antella, con 4 habitaciones, 2 baños, balcón con vistas despejadas al Assut de Antella y plaza de garaje incluida en el precio. Entorno tranquilo rodeado de naturaleza.",
+    descEn: "A spacious, bright home in Antella with 4 bedrooms, 2 bathrooms, a balcony with open views of the Assut de Antella, and a garage space included in the price. A peaceful setting surrounded by nature.",
+    imgs: [
+      "https://img4.idealista.com/blur/WEB_DETAIL/0/id.pro.es.image.master/77/bf/c4/1436744112.jpg"
+    ]
+  },
+  {
+    id: "naquera-piso-1",
+    operacion: "venta",
+    zona: "Náquera",
+    tipo: "Piso",
+    precio: 170000,
+    precioTexto: "170.000 €",
+    hab: 1,
+    m2: 74,
+    planta: "2ª planta exterior",
+    ascensor: "Sí",
+    garaje: "Sí",
+    titulo: "Apartamento con terraza en residencial con piscina y pista de squash",
+    tituloEn: "Apartment with terrace in a complex with pool and squash court",
+    desc: "Apartamento reformado en una de las urbanizaciones más completas de Náquera, con terraza, piscina comunitaria, jardines, zona de juegos y pista de squash. Vivienda amueblada, con suelos Porcelanosa y sanitarios Roca.",
+    descEn: "A renovated apartment in one of Náquera's most complete developments, with a terrace, communal pool, gardens, play area and squash court. Furnished, with Porcelanosa floors and Roca fittings.",
+    imgs: [
+      "https://img4.idealista.com/blur/WEB_DETAIL/0/id.pro.es.image.master/13/88/73/1439835818.jpg"
+    ]
   }
 ];
