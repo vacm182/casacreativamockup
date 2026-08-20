@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casa Creativa Inmobiliaria — Valencia, Xàtiva y costa de Gandia</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+<header class="site">
+  <a class="logo" href="index.html">
+    <img src="https://static.wixstatic.com/media/0f9908_3acbf13766be43e99cfff28b6be20421~mv2.png" alt="Casa Creativa Inmobiliaria">
+    <div class="word">Casa Creativa</div>
+  </a>
+  <nav class="site-links" id="site-nav">
+    <a href="comprar.html">Comprar</a>
+    <a href="alquilar.html">Alquilar</a>
+    <a href="vende.html">Vende tu casa</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+  <div class="header-actions">
+    <div class="lang-toggle"><span class="on">ES</span><a href="en/index.html" style="text-decoration:none; color:inherit;">EN</a></div>
+    <a class="btn outline" href="contacto.html">Contacto</a>
+  </div>
+  <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
+</header>
+
+<section class="hero home">
+  <div class="eyebrow">Valencia · Xàtiva · Costa de Gandia</div>
+  <h1>Tu próxima casa, <em>entre el mar y el interior.</em></h1>
+  <p class="lede">Casas, pisos y fincas rurales en toda la provincia de Valencia. Te acompañamos en español e inglés, de principio a fin.</p>
+  <div class="hero-media">
+    <div class="frame">
+      <img src="https://images.unsplash.com/photo-1767045572136-868c9407818b?w=1600&q=80&auto=format&fit=crop" alt="Costa mediterránea">
+      <div class="overlay"><div><div class="loc">Costa de Valencia</div><div class="cap">De pueblos con puerto a calles con historia</div></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="search-bar">
+  <div class="field"><label>Zona</label>
+    <select id="home-zona"><option value="">Todas las zonas</option><option>Xàtiva</option><option>Cullera</option><option>Náquera</option><option>Alborache</option><option>Chella</option><option>Favara</option><option>Valencia</option><option>Adzaneta del Maestrat</option><option>Benirredrà</option><option>Alcántera de Xuquer</option><option>Antella</option></select>
+  </div>
+  <div class="field"><label>Tipo</label>
+    <select id="home-tipo"><option value="">Cualquier tipo</option><option>Piso</option><option>Casa / chalet</option></select>
+  </div>
+  <div class="field"><label>Precio máx.</label>
+    <select id="home-precio"><option value="">Sin límite</option><option value="150000">150.000 €</option><option value="300000">300.000 €</option></select>
+  </div>
+  <button class="btn primary" onclick="buscarDesdeHome()">Buscar</button>
+</div>
+
+<div class="promise">
+  <h2>Trato de <em>tú a tú</em>, del primer contacto hasta mucho después de entregar las llaves.</h2>
+  <div class="pillars">
+    <div class="pillar"><span class="kicker">Compradores e inquilinos</span><p>Un mismo agente te acompaña de principio a fin.</p></div>
+    <div class="pillar"><span class="kicker">Propietarios</span><p>Trato cercano y honesto en cada paso, desde la valoración hasta la firma.</p></div>
+    <div class="pillar"><span class="kicker">Después de la venta</span><p>Seguimos disponibles cuando nos necesites.</p></div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-head">
+    <div class="eyebrow">Selección</div>
+    <h2>Inmuebles destacados</h2>
+    <p>Cartera real, sincronizada desde tu ficha de Idealista — sin duplicar trabajo.</p>
+  </div>
+  <div class="grid" id="grid-destacados"></div>
+  <div style="text-align:center; margin-top:44px;"><a class="btn link" href="comprar.html">Ver todas las viviendas en venta</a></div>
+</section>
+
+<div style="text-align:center; padding:32px; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="eyebrow" style="margin:0;">Publicado también en</div>
+  <div style="display:flex; justify-content:center; gap:40px; margin-top:14px; font-family:'Fraunces',serif; font-size:16px;">
+    <a href="https://www.idealista.com/pro/casa-creativa-inmobiliaria/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">Idealista</a><a href="https://www.fotocasa.es/es/inmobiliaria-casa-creativa-inmobiliaria/comprar/inmuebles/espana/todas-las-zonas/l?clientId=9202764899686" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">Fotocasa</a><a href="https://www.habitaclia.com/inmobiliaria-casa_creativa_inmobiliaria_31145_1/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">Habitaclia</a>
+  </div>
+</div>
+
+<div class="coverage">
+  <div class="eyebrow" style="color:var(--clay-deep);">Zonas donde trabajamos</div>
+  <h2>De la costa al interior, sin perder de vista tu zona</h2>
+  <div class="towns"><span>Vinaròs</span> · Castellón · <span>Xàtiva</span> · Interior · <span>Náquera</span> · Área metropolitana · <span>Valencia ciudad</span> · <span>Gandia</span> · <span>Cullera</span> · Costa</div>
+</div>
+
+<div class="feature-row">
+  <div class="media"><img src="https://images.unsplash.com/photo-1619381214782-3ae09a2ce563?w=900&q=80&auto=format&fit=crop" alt="Vende tu casa"></div>
+  <div class="copy">
+    <div class="eyebrow">Para propietarios</div>
+    <h2>Valoración gratuita, sin compromiso.</h2>
+    <p>Visitamos tu vivienda y la comparamos con ventas reales de tu zona. Nada de precios automáticos genéricos.</p>
+    <a class="btn primary" href="vende.html" style="margin-top:20px; display:inline-flex;">Pedir valoración</a>
+  </div>
+</div>
+
+<section class="section tight">
+  <div class="section-head">
+    <div class="eyebrow">Por qué Casa Creativa</div>
+    <h2>Cercanía local, mirada internacional</h2>
+  </div>
+  <div class="why-list">
+    <div class="why-item"><h3>Atención bilingüe</h3><p>Acompañamos tanto a compradores locales como a la comunidad internacional que busca vivienda en la Comunidad Valenciana.</p></div>
+    <div class="why-item"><h3>Cartera verificada</h3><p>Inmuebles reales, publicados y actualizados en Idealista, Fotocasa y Habitaclia — visibles también aquí.</p></div>
+    <div class="why-item"><h3>Servicio integral</h3><p>Certificado energético, tasaciones, seguros y gestión de herencias, todo en un mismo lugar.</p></div>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="valuation">
+    <div class="eyebrow">Para propietarios</div>
+    <h2>¿Cuánto vale tu vivienda hoy?</h2>
+    <p>Un agente que conoce tu zona palmo a palmo, no un algoritmo genérico.</p>
+    <div class="val-form">
+      <input id="home-val-direccion" placeholder="Dirección de la vivienda">
+      <select id="home-val-tipo"><option value="">Tipo de vivienda</option><option>Piso</option><option>Casa / chalet</option><option>Finca rural</option></select>
+      <input id="home-val-telefono" placeholder="Teléfono de contacto">
+      <button class="btn primary" onclick="enviarValoracion('home-val')">Pedir valoración gratuita</button>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="footer-grid">
+    <div>
+      <div class="logo" style="margin-bottom:10px;"><img src="https://static.wixstatic.com/media/0f9908_3acbf13766be43e99cfff28b6be20421~mv2.png" style="width:26px;height:26px;"><div class="word" style="font-size:15px;">Casa Creativa</div></div>
+      <p style="color:var(--gray); max-width:260px; line-height:1.6;">Litógrafo Pascual i Abad 31, València · Atendemos en español e inglés.</p>
+    </div>
+    <div><h4>Inmuebles</h4><a href="comprar.html">Comprar</a><a href="alquilar.html">Alquilar</a></div>
+    <div><h4>Agencia</h4><a href="servicios.html">Servicios</a><a href="vende.html">Vende tu casa</a><a href="nosotros.html">Nosotros</a></div>
+    <div><h4>Trabajamos con</h4><a href="https://www.idealista.com/pro/casa-creativa-inmobiliaria/" target="_blank" rel="noopener">Idealista</a><a href="https://www.fotocasa.es/es/inmobiliaria-casa-creativa-inmobiliaria/comprar/inmuebles/espana/todas-las-zonas/l?clientId=9202764899686" target="_blank" rel="noopener">Fotocasa</a><a href="https://www.habitaclia.com/inmobiliaria-casa_creativa_inmobiliaria_31145_1/" target="_blank" rel="noopener">Habitaclia</a></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Casa Creativa Inmobiliaria</span><span>Legal · Privacidad · Cookies</span></div>
+</footer>
+
+
+<script src="propiedades.js"></script>
+<script src="main.js"></script>
+<script>
+  pintarGrid('grid-destacados', PROPIEDADES.filter(p => p.operacion === 'venta').slice(0, 6));
+
+  function buscarDesdeHome(){
+    const zona = document.getElementById('home-zona').value;
+    const tipo = document.getElementById('home-tipo').value;
+    const precio = document.getElementById('home-precio').value;
+    const params = new URLSearchParams();
+    if(zona) params.set('zona', zona);
+    if(tipo) params.set('tipo', tipo);
+    if(precio) params.set('precio', precio);
+    window.location.href = 'comprar.html?' + params.toString();
+  }
+</script>
+</body>
+</html>
