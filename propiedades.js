@@ -2489,5 +2489,97 @@ const PROPIEDADES = [
       "Images/Piso%20en%20venta%20en%20Calle%20Maestro%20Octavio%20Abat%2C%20Altura%20%E2%80%94%20idealista/imgi_52_1392960261.webp"
     ],
     url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/109195032/"
+  },
+
+  // ================================================================
+  // ALQUILER — 1. PUÇOL PLAYA
+  // ================================================================
+  {
+    id: "pucol-piso-1",
+    operacion: "alquiler",
+    zona: "Puçol",
+    tipo: "Piso",
+    precio: 1150,
+    precioTexto: "1.150 €/mes",
+    hab: 2,
+    m2: 95,
+    planta: "1ª planta exterior",
+    ascensor: "Sí",
+    garaje: "Sí",
+    titulo: "Piso con garaje y gran terraza en residencial con piscina",
+    tituloEn: "Apartment with garage and large terrace in a complex with pool",
+    desc: "Casa Creativa Inmobiliaria alquila esta fantástica vivienda en una de las mejores zonas de Puçol Playa, a escasos metros del mar. Urbanización residencial tranquila con piscina, garaje incluido y gran terraza. Contrato de larga duración.",
+    descEn: "Casa Creativa Inmobiliaria is renting this fantastic home in one of the best areas of Puçol Playa, just steps from the sea. A quiet residential complex with a pool, garage included and a large terrace. Long-term contract.",
+    imgs: [],
+    url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/111913498/"
+  },
+
+  // ================================================================
+  // ALQUILER — 2. VALENCIA (EXPOSICIÓ)
+  // ================================================================
+  {
+    id: "valencia-exposicio-piso-1",
+    operacion: "alquiler",
+    zona: "Exposició, València",
+    tipo: "Piso",
+    precio: 1200,
+    precioTexto: "1.200 €/mes",
+    hab: 2,
+    m2: 48,
+    planta: "Sin especificar",
+    ascensor: "No",
+    garaje: "No",
+    titulo: "Apartamento junto a Clínica Quirón y Jardín de Monforte",
+    tituloEn: "Apartment next to Clínica Quirón and Jardín de Monforte",
+    desc: "Casa Creativa Inmobiliaria alquila este fantástico apartamento en una de las zonas más demandadas de Valencia, junto a la Clínica Quirón y el Jardín de Monforte, en un entorno tranquilo, residencial y perfectamente comunicado.",
+    descEn: "Casa Creativa Inmobiliaria is renting this fantastic apartment in one of Valencia's most sought-after areas, next to Clínica Quirón and Jardín de Monforte, in a quiet, residential and well-connected setting.",
+    imgs: [],
+    url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/112278589/"
+  },
+
+  // ================================================================
+  // ALQUILER — 3. GANDIA
+  // ================================================================
+  {
+    id: "gandia-piso-alquiler-1",
+    operacion: "alquiler",
+    zona: "Gandia",
+    tipo: "Piso",
+    precio: 1300,
+    precioTexto: "1.300 €/mes",
+    hab: 3,
+    m2: 113,
+    planta: "6ª planta exterior",
+    ascensor: "Sí",
+    garaje: "No",
+    titulo: "Piso a estrenar amueblado con terrazas",
+    tituloEn: "Brand-new furnished apartment with terraces",
+    desc: "Casa Creativa Inmobiliaria alquila este espectacular piso a estrenar en Gandia, en una zona céntrica y muy valorada, haciendo esquina, lo que le aporta gran luminosidad y amplitud. Diseño moderno y amueblado.",
+    descEn: "Casa Creativa Inmobiliaria is renting this spectacular brand-new apartment in Gandia, in a central and highly regarded corner location, which gives it plenty of light and space. Modern design, furnished.",
+    imgs: [],
+    url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/111613277/"
+  },
+
+  // ================================================================
+  // ALQUILER — 4. VALENCIA (EL PILAR, MERCADO CENTRAL)
+  // ================================================================
+  {
+    id: "valencia-elpilar-alquiler-1",
+    operacion: "alquiler",
+    zona: "El Pilar, València",
+    tipo: "Piso",
+    precio: 978,
+    precioTexto: "978 €/mes",
+    hab: 1,
+    m2: 50,
+    planta: "Exterior con ascensor",
+    ascensor: "Sí",
+    garaje: "No",
+    titulo: "Estudio loft junto al Mercado Central",
+    tituloEn: "Loft studio next to the Central Market",
+    desc: "Casa Creativa Inmobiliaria alquila este espectacular estudio loft de obra nueva, completamente amueblado y equipado, junto al Mercado Central de Valencia, en pleno corazón de la ciudad. Contrato temporal hasta 11 meses, wifi incluida.",
+    descEn: "Casa Creativa Inmobiliaria is renting this spectacular brand-new loft studio, fully furnished and equipped, next to Valencia's Central Market, right in the heart of the city. Short-term contract up to 11 months, wifi included.",
+    imgs: [],
+    url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/96689438/"
   }
 ];
