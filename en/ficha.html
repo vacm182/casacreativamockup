@@ -28,6 +28,14 @@
 <div class="breadcrumb" id="breadcrumb">Loading…</div>
 <div class="detail-wrap" id="detail-wrap"></div>
 
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" onclick="cerrarLightbox()">&times;</button>
+  <button class="lb-nav lb-prev" onclick="lightboxMover(-1)">&#8249;</button>
+  <img id="lightbox-img" src="" alt="">
+  <button class="lb-nav lb-next" onclick="lightboxMover(1)">&#8250;</button>
+  <div class="lb-counter" id="lightbox-counter"></div>
+</div>
+
 <footer class="site">
   <div class="footer-grid">
     <div>
@@ -63,13 +71,17 @@
     crumb.innerHTML = `${p.operacion === 'alquiler' ? UI.alquilar : UI.comprar} / Valencia / ${p.zona} / <span style="color:var(--ink);">${titulo}</span>`;
 
     const imgs = p.imgs.length >= 3 ? p.imgs : [p.imgs[0], p.imgs[0], p.imgs[0]];
+    const totalFotos = p.imgs.length;
 
     wrap.innerHTML = `
       <div>
         <div class="gallery">
-          <div><img src="${imgs[0]}" alt=""></div>
-          <div><img src="${imgs[1]}" alt=""></div>
-          <div><img src="${imgs[2]}" alt=""></div>
+          <div onclick="abrirLightbox(0)"><img src="${imgs[0]}" alt=""></div>
+          <div onclick="abrirLightbox(1)"><img src="${imgs[1]}" alt=""></div>
+          <div onclick="abrirLightbox(2)">
+            <img src="${imgs[2]}" alt="">
+            ${totalFotos > 3 ? `<span class="ver-todas">📷 See all ${totalFotos} photos</span>` : ''}
+          </div>
         </div>
         <div class="detail-title">
           <div class="eyebrow">${p.zona} · ${p.tipo}</div>
@@ -98,6 +110,37 @@
         <div style="margin-top:16px; font-family:'Inter',sans-serif; font-size:12px; color:var(--gray); line-height:1.6;">${UI.alsoOn}</div>
       </div>`;
   }
+
+  // ---- Photo viewer (lightbox) ----
+  let lbFotos = p ? p.imgs : [];
+  let lbIndex = 0;
+
+  function abrirLightbox(i){
+    if(!lbFotos.length) return;
+    lbIndex = i;
+    actualizarLightbox();
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function cerrarLightbox(){
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  function lightboxMover(delta){
+    lbIndex = (lbIndex + delta + lbFotos.length) % lbFotos.length;
+    actualizarLightbox();
+  }
+  function actualizarLightbox(){
+    document.getElementById('lightbox-img').src = lbFotos[lbIndex];
+    document.getElementById('lightbox-counter').textContent = `${lbIndex + 1} / ${lbFotos.length}`;
+  }
+  document.addEventListener('keydown', (e) => {
+    if(!document.getElementById('lightbox').classList.contains('open')) return;
+    if(e.key === 'Escape') cerrarLightbox();
+    if(e.key === 'ArrowRight') lightboxMover(1);
+    if(e.key === 'ArrowLeft') lightboxMover(-1);
+  });
+  document.getElementById('lightbox').addEventListener('click', (e) => {
+    if(e.target.id === 'lightbox') cerrarLightbox();
+  });
 </script>
 </body>
 </html>
