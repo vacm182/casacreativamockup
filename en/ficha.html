@@ -70,18 +70,20 @@
     document.title = titulo + " — Casa Creativa Inmobiliaria";
     crumb.innerHTML = `${p.operacion === 'alquiler' ? UI.alquilar : UI.comprar} / Valencia / ${p.zona} / <span style="color:var(--ink);">${titulo}</span>`;
 
-    const imgs = p.imgs.length >= 3 ? p.imgs : [p.imgs[0], p.imgs[0], p.imgs[0]];
     const totalFotos = p.imgs.length;
+    const imgs = totalFotos > 0
+      ? [0,1,2,3,4].map(i => p.imgs[i % totalFotos])
+      : ["https://images.unsplash.com/photo-1748033766479-fa6b0f9f6b33?w=900&q=80&auto=format&fit=crop"];
 
     wrap.innerHTML = `
       <div>
         <div class="gallery">
           <div onclick="abrirLightbox(0)"><img src="${imgs[0]}" alt=""></div>
           <div onclick="abrirLightbox(1)"><img src="${imgs[1]}" alt=""></div>
-          <div onclick="abrirLightbox(2)">
-            <img src="${imgs[2]}" alt="">
-            ${totalFotos > 3 ? `<span class="ver-todas">📷 See all ${totalFotos} photos</span>` : ''}
-          </div>
+          <div onclick="abrirLightbox(2)"><img src="${imgs[2]}" alt=""></div>
+          <div onclick="abrirLightbox(3)"><img src="${imgs[3]}" alt=""></div>
+          <div onclick="abrirLightbox(4)"><img src="${imgs[4]}" alt=""></div>
+          ${totalFotos > 0 ? `<span class="ver-todas" onclick="abrirLightbox(0)">▦ Show all photos (${totalFotos})</span>` : ''}
         </div>
         <div class="detail-title">
           <div class="eyebrow">${p.zona} · ${p.tipo}</div>
