@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vende tu casa — Casa Creativa Inmobiliaria</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+<header class="site">
+  <a class="logo" href="index.html">
+    <img src="https://static.wixstatic.com/media/0f9908_3acbf13766be43e99cfff28b6be20421~mv2.png" alt="Casa Creativa Inmobiliaria">
+    <div class="word">Casa Creativa</div>
+  </a>
+  <nav class="site-links" id="site-nav">
+    <a href="comprar.html">Comprar</a>
+    <a href="alquilar.html">Alquilar</a>
+    <a href="vende.html">Vende tu casa</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+  <div class="header-actions"><div class="lang-toggle"><span class="on">ES</span><a href="en/sell.html" style="text-decoration:none; color:inherit;">EN</a></div></div>
+  <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">Para propietarios</div>
+  <h1>Vende o alquila tu vivienda, <em>sin sorpresas.</em></h1>
+  <p class="lede">Valoración gratuita, fotografía profesional y publicación simultánea en los principales portales.</p>
+  <div class="hero-media"><div class="frame"><img src="https://images.unsplash.com/photo-1619381214782-3ae09a2ce563?w=1600&q=80&auto=format&fit=crop" alt=""></div></div>
+</section>
+
+<div class="search-bar" style="grid-template-columns:1fr 1fr 1fr auto;">
+  <div class="field"><label>Dirección</label><input id="vende-direccion" placeholder="Calle, municipio"></div>
+  <div class="field"><label>Operación</label><select id="vende-operacion"><option>Vender</option><option>Alquilar</option></select></div>
+  <div class="field"><label>Teléfono</label><input id="vende-telefono" placeholder="+34"></div>
+  <button class="btn primary" onclick="enviarVende()">Solicitar valoración</button>
+</div>
+
+<section class="section tight">
+  <div class="why-list">
+    <div class="why-item"><h3>01 · Valoración con un agente real</h3><p>Visitamos tu vivienda y comparamos con ventas recientes en tu misma zona.</p></div>
+    <div class="why-item"><h3>02 · Certificado energético incluido</h3><p>Gestionamos el certificado y el plano de tu vivienda, obligatorios para publicar.</p></div>
+    <div class="why-item"><h3>03 · Publicación en todos los portales</h3><p>Tu anuncio se sincroniza en Idealista, Fotocasa, Habitaclia y esta web.</p></div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="footer-grid">
+    <div>
+      <div class="logo" style="margin-bottom:10px;"><img src="https://static.wixstatic.com/media/0f9908_3acbf13766be43e99cfff28b6be20421~mv2.png" style="width:26px;height:26px;"><div class="word" style="font-size:15px;">Casa Creativa</div></div>
+      <p style="color:var(--gray); max-width:260px; line-height:1.6;">Litógrafo Pascual i Abad 31, València · Atendemos en español e inglés.</p>
+    </div>
+    <div><h4>Inmuebles</h4><a href="comprar.html">Comprar</a><a href="alquilar.html">Alquilar</a></div>
+    <div><h4>Agencia</h4><a href="servicios.html">Servicios</a><a href="vende.html">Vende tu casa</a><a href="nosotros.html">Nosotros</a></div>
+    <div><h4>Trabajamos con</h4><a href="https://www.idealista.com/pro/casa-creativa-inmobiliaria/" target="_blank" rel="noopener">Idealista</a><a href="https://www.fotocasa.es/es/inmobiliaria-casa-creativa-inmobiliaria/comprar/inmuebles/espana/todas-las-zonas/l?clientId=9202764899686" target="_blank" rel="noopener">Fotocasa</a><a href="https://www.habitaclia.com/inmobiliaria-casa_creativa_inmobiliaria_31145_1/" target="_blank" rel="noopener">Habitaclia</a></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Casa Creativa Inmobiliaria</span><span>Legal · Privacidad · Cookies</span></div>
+</footer>
+
+<script src="propiedades.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
