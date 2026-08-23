@@ -85,6 +85,34 @@ Desaparece sola de todo el sitio en 1-2 minutos.
 
 ---
 
-## Regla de oro antes de guardar cualquier cambio
+## Cómo agregar un video a una propiedad
+
+Algunas propiedades tienen video en Idealista. Para agregarlo:
+
+1. Descarga el video desde el anuncio de Idealista (igual que las fotos)
+2. Súbelo a la misma carpeta de esa propiedad en `Images/`, por ejemplo:
+   `Images/Piso en venta en Calle Pintor Juan Frances, 11, Xátiva — idealista/video.mp4`
+3. En `propiedades.js`, dentro del bloque de esa propiedad, agrega una línea nueva `video:` (puede ir después de `imgs:`), con la ruta completa empezando con `/Images/`:
+
+```js
+video: "/Images/Piso en venta en Calle Pintor Juan Frances, 11, Xátiva — idealista/video.mp4",
+```
+
+⚠️ Si el nombre de la carpeta tiene espacios, comas o acentos (como casi todas), tienes que "codificarlos" igual que en las fotos — lo más fácil es copiar la ruta de una foto que ya esté en `imgs:` de esa misma propiedad y solo cambiar el nombre del archivo al final por el del video.
+
+Ejemplo real:
+```js
+imgs: [
+  "/Images/Piso%20en%20venta%20en%20Calle%20Pintor...idealista/imgi_101_...webp",
+  ...
+],
+video: "/Images/Piso%20en%20venta%20en%20Calle%20Pintor...idealista/video.mp4",
+```
+
+Si no le pones `video:` a una propiedad, simplemente no aparece el reproductor en su ficha — no rompe nada.
+
+---
+
+
 
 Cuenta las llaves `{` y `}` — deben ser la misma cantidad. Si GitHub te muestra un error raro o el sitio deja de cargar después de un cambio, casi siempre es una coma o una llave faltante. Si se traba, mándale captura a Víctor y lo revisa contigo.
