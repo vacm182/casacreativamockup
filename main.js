@@ -57,7 +57,7 @@ function tarjetaHTML(p){
       <div class="thumb">
         <img src="${p.imgs[0]}" alt="${titulo}">
         <span class="tag">${p.operacion === "alquiler" ? UI.alquiler : UI.venta}</span>
-        ${p.video ? `<span class="tag" style="left:auto; right:10px;">🎥</span>` : ''}
+        ${p.videos && p.videos.length ? `<span class="tag" style="left:auto; right:10px;">🎥</span>` : ''}
       </div>
       <div class="price">${p.precioTexto}</div>
       <div class="title">${titulo}</div>

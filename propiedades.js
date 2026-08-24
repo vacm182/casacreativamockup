@@ -182,7 +182,7 @@ const PROPIEDADES = [
       "/Images/Piso%20en%20venta%20en%20Calle%20Pintor%20Juan%20Frances%2C%2011%2C%20X%C3%A1tiva%20%E2%80%94%20idealista/imgi_201_1459823395.webp",
       "/Images/Piso%20en%20venta%20en%20Calle%20Pintor%20Juan%20Frances%2C%2011%2C%20X%C3%A1tiva%20%E2%80%94%20idealista/imgi_77_1459823203.webp"
     ],
-    video: "https://st3v.idealista.com/2a/8d/ac/hd_1459823150.mp4",
+    videos: ["https://st3v.idealista.com/2a/8d/ac/hd_1459823150.mp4"],
     url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/112133846/"
   },
 
@@ -282,7 +282,7 @@ const PROPIEDADES = [
       "/Images/Piso%20en%20venta%20en%20Calle%20de%20l%27Actor%20Ismael%20Merlo%2C%20Rac%C3%B3%2C%20Cullera%20%E2%80%94%20idealista/imgi_133_1461220510.webp",
       "/Images/Piso%20en%20venta%20en%20Calle%20de%20l%27Actor%20Ismael%20Merlo%2C%20Rac%C3%B3%2C%20Cullera%20%E2%80%94%20idealista/imgi_93_1461220520.webp"
     ],
-    video: "https://st3v.idealista.com/08/65/b6/hd_1450937029.mp4",
+    videos: ["https://st3v.idealista.com/08/65/b6/hd_1450937029.mp4"],
     url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/111863835/"
   },
 
@@ -361,7 +361,7 @@ const PROPIEDADES = [
       "/Images/Casa%20o%20chalet%20independiente%20en%20venta%20en%20Calle%20Reverendo%20Jos%C3%A9%20Vinat%2C%20Alborache%20%E2%80%94%20idealista/imgi_237_1436160854.webp",
       "/Images/Casa%20o%20chalet%20independiente%20en%20venta%20en%20Calle%20Reverendo%20Jos%C3%A9%20Vinat%2C%20Alborache%20%E2%80%94%20idealista/imgi_241_1436160956.webp"
     ],
-    video: "https://st3v.idealista.com/59/22/93/hd_1336301549.mp4",
+    videos: ["https://st3v.idealista.com/59/22/93/hd_1336301549.mp4"],
     url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/108176086/"
   },
 
@@ -449,7 +449,7 @@ const PROPIEDADES = [
       "/Images/Piso%20en%20venta%20en%20Calle%20Miguel%20Angel%20Blanco%2C%20Casco%20Urbano%2C%20N%C3%A1quera%20%E2%80%94%20idealista%20-%20111539823/imgi_115_1439835901.webp",
       "/Images/Piso%20en%20venta%20en%20Calle%20Miguel%20Angel%20Blanco%2C%20Casco%20Urbano%2C%20N%C3%A1quera%20%E2%80%94%20idealista%20-%20111539823/imgi_99_1439835883.webp"
     ],
-    video: "https://st3v.idealista.com/c1/04/8c/hd_1439836299.mp4",
+    videos: ["https://st3v.idealista.com/c1/04/8c/hd_1439836299.mp4"],
     url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/111539823/"
   },
 
@@ -522,7 +522,7 @@ const PROPIEDADES = [
       "/Images/Piso%20en%20venta%20en%20Avenida%20Jaume%20I%2C%20Simat%20de%20la%20Valldigna%20%E2%80%94%20idealista/imgi_90_1439502957.webp",
       "/Images/Piso%20en%20venta%20en%20Avenida%20Jaume%20I%2C%20Simat%20de%20la%20Valldigna%20%E2%80%94%20idealista/imgi_94_1439502959.webp"
     ],
-    video: "https://st3v.idealista.com/18/cf/1b/hd_1439498683.mp4",
+    videos: ["https://st3v.idealista.com/18/cf/1b/hd_1439498683.mp4"],
     url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/111529743/"
   },
 
@@ -562,7 +562,7 @@ const PROPIEDADES = [
       "/Images/Piso%20en%20venta%20en%20Calle%20de%20Just%20Ram%C3%ADrez%2C%20Tormos%2C%20Val%C3%A8ncia%20%E2%80%94%20idealista/imgi_70_1449712413.webp",
       "/Images/Piso%20en%20venta%20en%20Calle%20de%20Just%20Ram%C3%ADrez%2C%20Tormos%2C%20Val%C3%A8ncia%20%E2%80%94%20idealista/imgi_74_1449712415.webp"
     ],
-    video: "https://st3v.idealista.com/b5/b2/a5/hd_1449712349.mp4",
+    videos: ["https://st3v.idealista.com/b5/b2/a5/hd_1449712349.mp4"],
     url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/111827230/"
   },
 
@@ -609,7 +609,7 @@ const PROPIEDADES = [
       "/Images/Piso%20en%20venta%20en%20Calle%20Miguel%20Angel%20Blanco%2C%20Casco%20Urbano%2C%20N%C3%A1quera%20%E2%80%94%20idealista-%20110742038/imgi_101_1436160377.webp",
       "/Images/Piso%20en%20venta%20en%20Calle%20Miguel%20Angel%20Blanco%2C%20Casco%20Urbano%2C%20N%C3%A1quera%20%E2%80%94%20idealista-%20110742038/imgi_123_1436160389.webp"
     ],
-    video: "https://st3v.idealista.com/b2/db/5e/hd_1414133870.mp4",
+    videos: ["https://st3v.idealista.com/b2/db/5e/hd_1414133870.mp4"],
     url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/110742038/"
   },
 
@@ -668,7 +668,7 @@ const PROPIEDADES = [
       "/Images/Piso%20en%20venta%20en%20Calle%20de%20Gandia%2C%20Barx%20%E2%80%94%20idealista/imgi_238_1452162241.webp",
       "/Images/Piso%20en%20venta%20en%20Calle%20de%20Gandia%2C%20Barx%20%E2%80%94%20idealista/imgi_240_1452162242.webp"
     ],
-    video: "https://st3v.idealista.com/68/3f/30/hd_1452156604.mp4",
+    videos: ["https://st3v.idealista.com/68/3f/30/hd_1452156604.mp4"],
     url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/111901024/"
   },
 
@@ -726,7 +726,7 @@ const PROPIEDADES = [
       "/Images/Casa%20o%20chalet%20independiente%20en%20venta%20en%20Plaza%20Adolfo%20Gimenez%20del%20Rio%2C%20Chella%20%E2%80%94%20idealista/imgi_69_1396613429.webp",
       "/Images/Casa%20o%20chalet%20independiente%20en%20venta%20en%20Plaza%20Adolfo%20Gimenez%20del%20Rio%2C%20Chella%20%E2%80%94%20idealista/imgi_91_1396613440.webp"
     ],
-    video: "https://st3v.idealista.com/04/73/36/hd_1382015583.mp4",
+    videos: ["https://st3v.idealista.com/04/73/36/hd_1382015583.mp4", "https://st3v.idealista.com/d6/40/4b/hd_1382015574.mp4"],
     url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/109671927/"
   },
 
@@ -782,7 +782,7 @@ const PROPIEDADES = [
       "/Images/Chalet%20adosado%20en%20venta%20en%20Favara%2C%20Ribera%20Baixa%2C%20Val%C3%A8ncia%20%E2%80%94%20idealista/imgi_88_1423713164.webp",
       "/Images/Chalet%20adosado%20en%20venta%20en%20Favara%2C%20Ribera%20Baixa%2C%20Val%C3%A8ncia%20%E2%80%94%20idealista/imgi_94_1423713176.webp"
     ],
-    video: "https://st3v.idealista.com/f2/f2/ea/hd_1402306240.mp4",
+    videos: ["https://st3v.idealista.com/f2/f2/ea/hd_1402306240.mp4"],
     url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/110336997/"
   },
 
@@ -858,7 +858,7 @@ const PROPIEDADES = [
       "/Images/Casa%20o%20chalet%20independiente%20en%20venta%20en%20Favara%2C%20Ribera%20Baixa%2C%20Val%C3%A8ncia%20%E2%80%94%20idealista/imgi_212_1436159818.webp",
       "/Images/Casa%20o%20chalet%20independiente%20en%20venta%20en%20Favara%2C%20Ribera%20Baixa%2C%20Val%C3%A8ncia%20%E2%80%94%20idealista/imgi_54_1436159699.webp"
     ],
-    video: "https://st3v.idealista.com/c3/d7/92/hd_1428452558.mp4",
+    videos: ["https://st3v.idealista.com/c3/d7/92/hd_1428452558.mp4"],
     url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/111189926/"
   },
 
@@ -915,7 +915,7 @@ const PROPIEDADES = [
       "/Images/Piso%20en%20venta%20en%20Calle%20R%C3%B2tova%2C%20Benipeixcar%20-%20El%20Raval%2C%20Gandia%20%E2%80%94%20idealista/imgi_97_1464582439.jpg",
       "/Images/Piso%20en%20venta%20en%20Calle%20R%C3%B2tova%2C%20Benipeixcar%20-%20El%20Raval%2C%20Gandia%20%E2%80%94%20idealista/imgi_211_1464582582.jpg"
     ],
-    video: "https://st3v.idealista.com/b7/21/04/hd_1464582977.mp4",
+    videos: ["https://st3v.idealista.com/b7/21/04/hd_1464582977.mp4"],
     url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/112278331/"
   },
 
@@ -1105,7 +1105,7 @@ const PROPIEDADES = [
       "/Images/Piso%20en%20venta%20en%20Calle%20de%20Guillem%20de%20Castro%2C%20El%20Pilar%2C%20Val%C3%A8ncia%20%E2%80%94%20idealista/imgi_89_1402306742.webp",
       "/Images/Piso%20en%20venta%20en%20Calle%20de%20Guillem%20de%20Castro%2C%20El%20Pilar%2C%20Val%C3%A8ncia%20%E2%80%94%20idealista/imgi_91_1402306743.webp"
     ],
-    video: "https://st3v.idealista.com/97/1c/71/hd_1402306303.mp4",
+    videos: ["https://st3v.idealista.com/97/1c/71/hd_1402306303.mp4"],
     url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/110336965/"
   },
 
@@ -1176,7 +1176,7 @@ const PROPIEDADES = [
       "/Images/Casa%20o%20chalet%20independiente%20en%20venta%20en%20Calle%20Virgen%20del%20Carmen%2C%20Mogente%20%E2%80%94%20idealista/imgi_184_1392937662.webp",
       "/Images/Casa%20o%20chalet%20independiente%20en%20venta%20en%20Calle%20Virgen%20del%20Carmen%2C%20Mogente%20%E2%80%94%20idealista/imgi_70_1392937549.webp"
     ],
-    video: "https://st3v.idealista.com/78/ee/71/hd_1335791713.mp4",
+    videos: ["https://st3v.idealista.com/78/ee/71/hd_1335791713.mp4"],
     url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/108163156/"
   },
 
@@ -1284,7 +1284,7 @@ const PROPIEDADES = [
       "/Images/Piso%20en%20venta%20en%20Calle%20la%20Cendra%2C%20L%27Olleria%20%E2%80%94%20idealista/imgi_144_1393341415.webp",
       "/Images/Piso%20en%20venta%20en%20Calle%20la%20Cendra%2C%20L%27Olleria%20%E2%80%94%20idealista/imgi_76_1393341333.webp"
     ],
-    video: "https://st3v.idealista.com/d6/38/69/hd_1261927871.mp4",
+    videos: ["https://st3v.idealista.com/d6/38/69/hd_1261927871.mp4"],
     url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/105750727/"
   },
 
@@ -1423,7 +1423,7 @@ const PROPIEDADES = [
       "/Images/Alquiler%20de%20piso%20en%20Avenida%20del%20Grau%20Vell%2C%20Playa%20de%20Pu%C3%A7ol%2C%20Pu%C3%A7ol%20%E2%80%94%20idealista/imgi_95_1452589170.webp",
       "/Images/Alquiler%20de%20piso%20en%20Avenida%20del%20Grau%20Vell%2C%20Playa%20de%20Pu%C3%A7ol%2C%20Pu%C3%A7ol%20%E2%80%94%20idealista/imgi_99_1452589127.webp"
     ],
-    video: "https://st3v.idealista.com/dd/6a/b9/hd_1452572133.mp4",
+    videos: ["https://st3v.idealista.com/dd/6a/b9/hd_1452572133.mp4"],
     url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/111913498/"
   },
 
@@ -1531,7 +1531,7 @@ const PROPIEDADES = [
       "/Images/Alquiler%20de%20piso%20en%20Plaza%20de%20Crist%20Rei%2C%20German%C3%ADes%20-%20Juzgados%2C%20Gandia%20%E2%80%94%20idealista/imgi_130_1464179261.webp",
       "/Images/Alquiler%20de%20piso%20en%20Plaza%20de%20Crist%20Rei%2C%20German%C3%ADes%20-%20Juzgados%2C%20Gandia%20%E2%80%94%20idealista/imgi_136_1464179264.webp"
     ],
-    video: "https://st3v.idealista.com/b6/57/f5/hd_1466790862.mp4",
+    videos: ["https://st3v.idealista.com/b6/57/f5/hd_1466790862.mp4"],
     url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/111613277/"
   },
 
@@ -1568,7 +1568,7 @@ const PROPIEDADES = [
       "/Images/Alquiler%20de%20piso%20en%20Calle%20de%20Maldonado%2C%20El%20Pilar%2C%20Val%C3%A8ncia%20%E2%80%94%20idealista/imgi_69_1445329056.webp",
       "/Images/Alquiler%20de%20piso%20en%20Calle%20de%20Maldonado%2C%20El%20Pilar%2C%20Val%C3%A8ncia%20%E2%80%94%20idealista/imgi_73_1445329086.webp"
     ],
-    video: "https://st3v.idealista.com/a5/e7/96/hd_953758298.mp4",
+    videos: ["https://st3v.idealista.com/a5/e7/96/hd_953758298.mp4"],
     imgs: [
       "/Images/Piso%20en%20venta%20en%20Paseo%20de%20la%20Petxina%2C%20La%20Petxina%2C%20Val%C3%A8ncia%20%E2%80%94%20idealista/imgi_100_1445068370.webp",
       "/Images/Piso%20en%20venta%20en%20Paseo%20de%20la%20Petxina%2C%20La%20Petxina%2C%20Val%C3%A8ncia%20%E2%80%94%20idealista/imgi_102_1445068371.webp",
@@ -1738,7 +1738,7 @@ const PROPIEDADES = [
       "/Images/Piso%20en%20venta%20en%20Calle%20Miguel%20Angel%20Blanco%2C%20Casco%20Urbano%2C%20N%C3%A1quera%20%E2%80%94%20idealista-%20109848680/imgi_92_1393049072.webp",
       "/Images/Piso%20en%20venta%20en%20Calle%20Miguel%20Angel%20Blanco%2C%20Casco%20Urbano%2C%20N%C3%A1quera%20%E2%80%94%20idealista-%20109848680/imgi_94_1393049073.webp"
     ],
-    video: "https://st3v.idealista.com/50/50/60/hd_1387476961.mp4",
+    videos: ["https://st3v.idealista.com/50/50/60/hd_1387476961.mp4"],
     url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/109848680/"
   }
 ];

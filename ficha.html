@@ -99,10 +99,10 @@
           <div><b>${p.garaje}</b>${UI.garaje}</div>
         </div>
         <p class="desc">${desc}</p>
-        ${p.video ? `
+        ${p.videos && p.videos.length ? `
         <div class="video-block">
-          <div class="eyebrow">Video del inmueble</div>
-          <video controls preload="metadata" src="${p.video}"></video>
+          <div class="eyebrow">${p.videos.length > 1 ? 'Videos del inmueble' : 'Video del inmueble'}</div>
+          ${p.videos.map(v => `<video controls preload="metadata" src="${v}" style="margin-bottom:10px;"></video>`).join('')}
         </div>` : ''}
         <div class="map-block">
           <iframe src="https://www.google.com/maps?q=${encodeURIComponent(p.zona + ', Valencia, España')}&output=embed" loading="lazy" allowfullscreen></iframe>
