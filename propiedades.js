@@ -124,6 +124,11 @@ const PROPIEDADES = [
       "/Images/Casa%20o%20chalet%20independiente%20en%20venta%20en%20Calle%20Ample%2C%20Benirredra%20%E2%80%94%20idealista/imgi_224_1393039146.webp",
       "/Images/Casa%20o%20chalet%20independiente%20en%20venta%20en%20Calle%20Ample%2C%20Benirredra%20%E2%80%94%20idealista/imgi_226_1393039147.webp"
     ],
+    videos: [
+      "https://st3v.idealista.com/d8/ca/cf/hd_1380644589.mp4",
+      "https://st3v.idealista.com/a6/a7/44/hd_1380644590.mp4",
+      "https://st3v.idealista.com/02/8b/a2/hd_1380644651.mp4"
+    ],
     url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/109629934/"
   },
 
