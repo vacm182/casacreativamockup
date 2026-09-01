@@ -1973,5 +1973,74 @@ const PROPIEDADES = [
       "/Images/Parking%20coche%20por%207.500%20%E2%82%AC%20de%2014%20metros%20calle%20batalla%20d%27almansa%20en%20Rocafort%20-%20habitaclia/imgi_30_plaza-de-garaje-en-rocafort-rocafort_f3adbedf-0624-4e12-9107-61aa8c4d3ad4.jpg"
     ],
     url: "https://www.habitaclia.com/"
+  },
+
+  // ================================================================
+  // ALQUILER — 6. VALENCIA (MESTALLA) — encontrada en Habitaclia
+  // ================================================================
+  {
+    id: "valencia-mestalla-alquiler-1",
+    operacion: "alquiler",
+    zona: "Mestalla, València",
+    tipo: "Piso",
+    precio: 1250,
+    precioTexto: "1.250 €/mes",
+    hab: 1,
+    m2: 65,
+    planta: "Sin especificar",
+    ascensor: "Sí",
+    garaje: "No",
+    titulo: "Piso de 1 habitación en Avenida Eduardo Boscà",
+    tituloEn: "1-bedroom apartment on Avenida Eduardo Boscà",
+    desc: "Casa Creativa Inmobiliaria alquila este fantástico piso en Valencia, en la Avenida Eduardo Boscà, zona de Mestalla. Vivienda de 65 m² con 1 habitación, en un entorno muy bien comunicado.",
+    descEn: "Casa Creativa Inmobiliaria is renting this fantastic apartment in Valencia, on Avenida Eduardo Boscà, in the Mestalla area. A 65 m² home with 1 bedroom, in a very well-connected setting.",
+    imgs: [],
+    url: "https://www.habitaclia.com/"
+  },
+
+  // ================================================================
+  // ALQUILER — 7. VALENCIA (LA CARRASCA) — LOCAL 1 — encontrado en Habitaclia
+  // ================================================================
+  {
+    id: "valencia-tarongers-local-1",
+    operacion: "alquiler",
+    zona: "La Carrasca, València",
+    tipo: "Comercial",
+    precio: 980,
+    precioTexto: "980 €/mes",
+    hab: 0,
+    m2: 68,
+    planta: "Bajo",
+    ascensor: "No aplica",
+    garaje: "No",
+    titulo: "Local comercial en Avenida dels Tarongers",
+    tituloEn: "Commercial unit on Avenida dels Tarongers",
+    desc: "Casa Creativa Inmobiliaria alquila este local comercial de 68 m² en la Avenida dels Tarongers, Valencia, ubicado dentro de una residencia de estudiantes en una zona de alto tránsito.",
+    descEn: "Casa Creativa Inmobiliaria is renting this 68 m² commercial unit on Avenida dels Tarongers, Valencia, located within a student residence in a high-footfall area.",
+    imgs: [],
+    url: "https://www.habitaclia.com/"
+  },
+
+  // ================================================================
+  // ALQUILER — 8. VALENCIA (LA CARRASCA) — LOCAL 2 — encontrado en Habitaclia
+  // ================================================================
+  {
+    id: "valencia-tarongers-local-2",
+    operacion: "alquiler",
+    zona: "La Carrasca, València",
+    tipo: "Comercial",
+    precio: 550,
+    precioTexto: "550 €/mes",
+    hab: 0,
+    m2: 31,
+    planta: "Bajo",
+    ascensor: "No aplica",
+    garaje: "No",
+    titulo: "Local comercial pequeño en Avenida dels Tarongers",
+    tituloEn: "Small commercial unit on Avenida dels Tarongers",
+    desc: "Casa Creativa Inmobiliaria alquila este local comercial de 31 m² en la Avenida dels Tarongers, Valencia, también dentro de una residencia de estudiantes en una zona de alto tránsito.",
+    descEn: "Casa Creativa Inmobiliaria is renting this 31 m² commercial unit on Avenida dels Tarongers, Valencia, also located within a student residence in a high-footfall area.",
+    imgs: [],
+    url: "https://www.habitaclia.com/"
   }
 ];
