@@ -241,14 +241,16 @@ footer.site{ padding:44px 32px 22px; border-top:1px solid var(--line); margin-to
 .footer-grid a{ display:block; color:var(--ink); text-decoration:none; opacity:.78; margin-bottom:8px; }
 .footer-bottom{ max-width:1200px; margin:22px auto 0; padding-top:16px; border-top:1px solid var(--line); font-family:'Inter',sans-serif; font-size:11px; color:var(--gray); display:flex; justify-content:space-between; }
 
-.social-row{ display:flex; gap:8px; margin-top:10px; }
-.social-icon{
-  width:30px; height:30px; border-radius:50%; border:1px solid var(--line);
-  display:flex; align-items:center; justify-content:center; color:var(--ink);
-  transition:background .18s ease, border-color .18s ease, color .18s ease; flex-shrink:0;
+.social-row{ display:flex !important; gap:8px; margin-top:10px; flex-wrap:wrap; }
+.social-icon, .footer-grid a.social-icon{
+  display:flex !important; align-items:center; justify-content:center;
+  width:30px !important; height:30px !important; min-width:30px; max-width:30px;
+  border-radius:50%; border:1px solid var(--line); color:var(--ink);
+  transition:background .18s ease, border-color .18s ease, color .18s ease;
+  flex-shrink:0; margin-bottom:0 !important; opacity:1 !important; padding:0; box-sizing:border-box;
 }
 .social-icon:hover{ background:var(--clay); border-color:var(--clay); color:#fff; }
-.social-icon svg{ width:14px; height:14px; fill:currentColor; }
+.social-icon svg{ width:14px !important; height:14px !important; fill:currentColor; display:block; }
 
 /* ---- Toolbar (listado) ---- */
 .toolbar{ display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto; padding:30px 32px 16px; flex-wrap:wrap; gap:10px; }
