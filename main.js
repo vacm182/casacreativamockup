@@ -15,7 +15,7 @@ const UI = {
     notFound: "No encontramos ese inmueble", backToList: "Volver al listado",
     whatsappBtn: "Contactar por WhatsApp", visitBtn: "Solicitar visita",
     agentRole: "Agencia local · Valencia",
-    alsoOn: "También publicado en Idealista, Fotocasa y Habitaclia."
+    alsoOn: "También publicado en los principales portales inmobiliarios."
   },
   en: {
     venta: "For sale", alquiler: "For rent",
@@ -29,7 +29,7 @@ const UI = {
     notFound: "We couldn't find that property", backToList: "Back to listings",
     whatsappBtn: "Contact via WhatsApp", visitBtn: "Request a viewing",
     agentRole: "Local agency · Valencia",
-    alsoOn: "Also listed on Idealista, Fotocasa and Habitaclia."
+    alsoOn: "Also listed on the main property portals."
   }
 }[CURRENT_LANG];
 
@@ -37,12 +37,14 @@ const UI = {
 // MAIN.JS — lógica compartida por todas las páginas
 // =====================================================================
 
-// ⚠️ CAMBIA ESTE NÚMERO por el WhatsApp real de la agencia
+// ⚠️ CAMBIA ESTOS NÚMEROS por los WhatsApp reales de la agencia
 // Formato: código de país + número, SIN "+" y SIN espacios. Ej: 34612345678
-const WHATSAPP_NUMERO = "34660602633";
+const WHATSAPP_NUMERO_VENTA = "34660602633";
+const WHATSAPP_NUMERO_ALQUILER = "34744608271";
 
-function abrirWhatsApp(mensaje){
-  const url = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensaje)}`;
+function abrirWhatsApp(mensaje, operacion){
+  const numero = operacion === "alquiler" ? WHATSAPP_NUMERO_ALQUILER : WHATSAPP_NUMERO_VENTA;
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
   window.open(url, '_blank');
 }
 
@@ -138,7 +140,7 @@ function contactarFicha(tipo){
   const msg = tipo === 'visita'
     ? `Hola! Quisiera agendar una visita para: ${nombreEs}\n/ Hi! I'd like to schedule a viewing for: ${nombreEn}`
     : `Hola! Me interesa más información sobre: ${nombreEs}\n/ Hi! I'm interested in more info about: ${nombreEn}`;
-  abrirWhatsApp(msg);
+  abrirWhatsApp(msg, p ? p.operacion : "venta");
 }
 
 // ---- Marca el link activo en el menú según la página actual ----
