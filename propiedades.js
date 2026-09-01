@@ -299,8 +299,8 @@ const PROPIEDADES = [
     operacion: "venta",
     zona: "Alborache",
     tipo: "Casa / chalet",
-    precio: 179000,
-    precioTexto: "179.000 €",
+    precio: 169000,
+    precioTexto: "169.000 €",
     hab: 5,
     m2: 160,
     planta: "2 plantas",
@@ -378,8 +378,8 @@ const PROPIEDADES = [
     operacion: "venta",
     zona: "Antella",
     tipo: "Piso",
-    precio: 113000,
-    precioTexto: "113.000 €",
+    precio: 109000,
+    precioTexto: "109.000 €",
     hab: 4,
     m2: 112,
     planta: "1ª planta exterior",
@@ -626,8 +626,8 @@ const PROPIEDADES = [
     operacion: "venta",
     zona: "Barx",
     tipo: "Piso",
-    precio: 105000,
-    precioTexto: "105.000 €",
+    precio: 99000,
+    precioTexto: "99.000 €",
     hab: 4,
     m2: 132,
     planta: "2ª planta exterior",
@@ -1858,5 +1858,120 @@ const PROPIEDADES = [
       "/Images/Casa%20adosada%20en%20venta%20en%20Calle%20Catarroja%2C%20Picanya%2C%20Valencia%20_%20fotocasa/imgi_100_0f09922a-1673-4442-9129-8148adff9139.webp"
     ],
     url: "https://www.fotocasa.es/es/comprar/vivienda/picanya/parking-jardin-terraza-trastero-patio-amueblado/190557278/d"
+  },
+
+  // ================================================================
+  // 27. OFICINA EN CASTELLÓN (encontrada en Habitaclia)
+  // ================================================================
+  {
+    id: "castellon-oficina-1",
+    operacion: "venta",
+    zona: "Castellón de la Plana",
+    tipo: "Comercial",
+    precio: 185000,
+    precioTexto: "185.000 €",
+    hab: 0,
+    m2: 170,
+    planta: "Diáfano",
+    ascensor: "No aplica",
+    garaje: "No",
+    titulo: "Despacho diáfano de 150 m² en excelente ubicación",
+    tituloEn: "150 m² open-plan office space in a prime location",
+    desc: "Casa Creativa Inmobiliaria ofrece este amplio despacho de 150 m² diáfanos en una excelente ubicación de Castellón de la Plana, cerca de la Ronda Mijares. Ideal para oficinas, consultas profesionales o negocio propio.",
+    descEn: "Casa Creativa Inmobiliaria offers this spacious 150 m² open-plan office in an excellent location in Castellón de la Plana, near Ronda Mijares. Ideal for offices, professional practices or your own business.",
+    imgs: [
+      "/Images/Oficina%20por%20185.000%20%E2%82%AC%20de%20170%20metros%20ronda%20mijares%20despacho%20en%20venta%20en%20castell%C3%B3n%20150%20m2%20di%C3%A1fanos%20excelente%20ubicaci%C3%B3n%20185.000%20en%20Parque%20RIbalta%20-%20Plaza%20de%20Toros%20Castell%C3%B3n%20de%20la%20Plana%20-%20habitaclia/imgi_4_despacho-en-v.jpg",
+      "/Images/Oficina%20por%20185.000%20%E2%82%AC%20de%20170%20metros%20ronda%20mijares%20despacho%20en%20venta%20en%20castell%C3%B3n%20150%20m2%20di%C3%A1fanos%20excelente%20ubicaci%C3%B3n%20185.000%20en%20Parque%20RIbalta%20-%20Plaza%20de%20Toros%20Castell%C3%B3n%20de%20la%20Plana%20-%20habitaclia/imgi_17_despacho-en-.jpg",
+      "/Images/Oficina%20por%20185.000%20%E2%82%AC%20de%20170%20metros%20ronda%20mijares%20despacho%20en%20venta%20en%20castell%C3%B3n%20150%20m2%20di%C3%A1fanos%20excelente%20ubicaci%C3%B3n%20185.000%20en%20Parque%20RIbalta%20-%20Plaza%20de%20Toros%20Castell%C3%B3n%20de%20la%20Plana%20-%20habitaclia/imgi_18_despacho-en-.jpg",
+      "/Images/Oficina%20por%20185.000%20%E2%82%AC%20de%20170%20metros%20ronda%20mijares%20despacho%20en%20venta%20en%20castell%C3%B3n%20150%20m2%20di%C3%A1fanos%20excelente%20ubicaci%C3%B3n%20185.000%20en%20Parque%20RIbalta%20-%20Plaza%20de%20Toros%20Castell%C3%B3n%20de%20la%20Plana%20-%20habitaclia/imgi_19_despacho-en-.jpg",
+      "/Images/Oficina%20por%20185.000%20%E2%82%AC%20de%20170%20metros%20ronda%20mijares%20despacho%20en%20venta%20en%20castell%C3%B3n%20150%20m2%20di%C3%A1fanos%20excelente%20ubicaci%C3%B3n%20185.000%20en%20Parque%20RIbalta%20-%20Plaza%20de%20Toros%20Castell%C3%B3n%20de%20la%20Plana%20-%20habitaclia/imgi_20_despacho-en-.jpg",
+      "/Images/Oficina%20por%20185.000%20%E2%82%AC%20de%20170%20metros%20ronda%20mijares%20despacho%20en%20venta%20en%20castell%C3%B3n%20150%20m2%20di%C3%A1fanos%20excelente%20ubicaci%C3%B3n%20185.000%20en%20Parque%20RIbalta%20-%20Plaza%20de%20Toros%20Castell%C3%B3n%20de%20la%20Plana%20-%20habitaclia/imgi_21_despacho-en-.jpg",
+      "/Images/Oficina%20por%20185.000%20%E2%82%AC%20de%20170%20metros%20ronda%20mijares%20despacho%20en%20venta%20en%20castell%C3%B3n%20150%20m2%20di%C3%A1fanos%20excelente%20ubicaci%C3%B3n%20185.000%20en%20Parque%20RIbalta%20-%20Plaza%20de%20Toros%20Castell%C3%B3n%20de%20la%20Plana%20-%20habitaclia/imgi_22_despacho-en-.jpg",
+      "/Images/Oficina%20por%20185.000%20%E2%82%AC%20de%20170%20metros%20ronda%20mijares%20despacho%20en%20venta%20en%20castell%C3%B3n%20150%20m2%20di%C3%A1fanos%20excelente%20ubicaci%C3%B3n%20185.000%20en%20Parque%20RIbalta%20-%20Plaza%20de%20Toros%20Castell%C3%B3n%20de%20la%20Plana%20-%20habitaclia/imgi_23_despacho-en-.jpg",
+      "/Images/Oficina%20por%20185.000%20%E2%82%AC%20de%20170%20metros%20ronda%20mijares%20despacho%20en%20venta%20en%20castell%C3%B3n%20150%20m2%20di%C3%A1fanos%20excelente%20ubicaci%C3%B3n%20185.000%20en%20Parque%20RIbalta%20-%20Plaza%20de%20Toros%20Castell%C3%B3n%20de%20la%20Plana%20-%20habitaclia/imgi_24_despacho-en-.jpg",
+      "/Images/Oficina%20por%20185.000%20%E2%82%AC%20de%20170%20metros%20ronda%20mijares%20despacho%20en%20venta%20en%20castell%C3%B3n%20150%20m2%20di%C3%A1fanos%20excelente%20ubicaci%C3%B3n%20185.000%20en%20Parque%20RIbalta%20-%20Plaza%20de%20Toros%20Castell%C3%B3n%20de%20la%20Plana%20-%20habitaclia/imgi_25_despacho-en-.jpg",
+      "/Images/Oficina%20por%20185.000%20%E2%82%AC%20de%20170%20metros%20ronda%20mijares%20despacho%20en%20venta%20en%20castell%C3%B3n%20150%20m2%20di%C3%A1fanos%20excelente%20ubicaci%C3%B3n%20185.000%20en%20Parque%20RIbalta%20-%20Plaza%20de%20Toros%20Castell%C3%B3n%20de%20la%20Plana%20-%20habitaclia/imgi_26_despacho-en-.jpg",
+      "/Images/Oficina%20por%20185.000%20%E2%82%AC%20de%20170%20metros%20ronda%20mijares%20despacho%20en%20venta%20en%20castell%C3%B3n%20150%20m2%20di%C3%A1fanos%20excelente%20ubicaci%C3%B3n%20185.000%20en%20Parque%20RIbalta%20-%20Plaza%20de%20Toros%20Castell%C3%B3n%20de%20la%20Plana%20-%20habitaclia/imgi_28_espectacular.jpg",
+      "/Images/Oficina%20por%20185.000%20%E2%82%AC%20de%20170%20metros%20ronda%20mijares%20despacho%20en%20venta%20en%20castell%C3%B3n%20150%20m2%20di%C3%A1fanos%20excelente%20ubicaci%C3%B3n%20185.000%20en%20Parque%20RIbalta%20-%20Plaza%20de%20Toros%20Castell%C3%B3n%20de%20la%20Plana%20-%20habitaclia/imgi_29_entresuelo-e.jpg"
+    ],
+    url: "https://www.habitaclia.com/"
+  },
+
+  // ================================================================
+  // 28. LOCAL COMERCIAL EN XÀTIVA (encontrado en Habitaclia)
+  // ================================================================
+  {
+    id: "xativa-local-1",
+    operacion: "venta",
+    zona: "Xàtiva",
+    tipo: "Comercial",
+    precio: 63000,
+    precioTexto: "63.000 €",
+    hab: 0,
+    m2: 60,
+    planta: "Bajo",
+    ascensor: "No aplica",
+    garaje: "No",
+    titulo: "Local comercial en el casco antiguo",
+    tituloEn: "Commercial unit in the old town",
+    desc: "Casa Creativa Inmobiliaria vende este bajo comercial de 60 m² en pleno casco antiguo de Xàtiva. Buena oportunidad para negocio propio o inversión en una zona de paso.",
+    descEn: "Casa Creativa Inmobiliaria is selling this 60 m² commercial unit right in the old town of Xàtiva. A good opportunity for your own business or as an investment in a high-footfall area.",
+    imgs: [
+      "/Images/Local%20Comercial%20por%2063.000%20%E2%82%AC%20de%2060%20metros%20calle%20montcada%20en%20X%C3%A0tiva%20-%20habitaclia/imgi_18_calle-montcada-local-comercial-xativa_814c4da1-469c-40ac-b7d6-31112d7cc7ffG.jpg",
+      "/Images/Local%20Comercial%20por%2063.000%20%E2%82%AC%20de%2060%20metros%20calle%20montcada%20en%20X%C3%A0tiva%20-%20habitaclia/imgi_16_calle-montcada-local-comercial-xativa_220a9790-4601-453b-86be-d9290ba320daG.jpg",
+      "/Images/Local%20Comercial%20por%2063.000%20%E2%82%AC%20de%2060%20metros%20calle%20montcada%20en%20X%C3%A0tiva%20-%20habitaclia/imgi_17_calle-montcada-local-comercial-xativa_eea7370e-fe22-4803-8dd0-ab0952779ffbG.jpg",
+      "/Images/Local%20Comercial%20por%2063.000%20%E2%82%AC%20de%2060%20metros%20calle%20montcada%20en%20X%C3%A0tiva%20-%20habitaclia/imgi_19_calle-montcada-local-comercial-xativa_5949412d-e495-48e7-9cc4-45d6ce2b2a6eG.jpg",
+      "/Images/Local%20Comercial%20por%2063.000%20%E2%82%AC%20de%2060%20metros%20calle%20montcada%20en%20X%C3%A0tiva%20-%20habitaclia/imgi_20_calle-montcada-local-comercial-xativa_19d0b23a-6ecf-4256-8550-700e2d0dfb85G.jpg",
+      "/Images/Local%20Comercial%20por%2063.000%20%E2%82%AC%20de%2060%20metros%20calle%20montcada%20en%20X%C3%A0tiva%20-%20habitaclia/imgi_23_calle-montcada-local-comercial-xativa_6ca09388-1e54-4ecc-918c-f6721c95c77fG.jpg",
+      "/Images/Local%20Comercial%20por%2063.000%20%E2%82%AC%20de%2060%20metros%20calle%20montcada%20en%20X%C3%A0tiva%20-%20habitaclia/imgi_26_calle-montcada-local-comercial-xativa_a234dcfc-b5de-40e3-8a5d-48e35d85d4e9G.jpg",
+      "/Images/Local%20Comercial%20por%2063.000%20%E2%82%AC%20de%2060%20metros%20calle%20montcada%20en%20X%C3%A0tiva%20-%20habitaclia/imgi_27_calle-montcada-local-comercial-xativa_b80876f4-4eb7-4c83-99c8-30ec3f11f96aG.jpg",
+      "/Images/Local%20Comercial%20por%2063.000%20%E2%82%AC%20de%2060%20metros%20calle%20montcada%20en%20X%C3%A0tiva%20-%20habitaclia/imgi_28_calle-montcada-local-comercial-xativa_b84760ea-6e9d-4492-973d-66481b7b705dG.jpg",
+      "/Images/Local%20Comercial%20por%2063.000%20%E2%82%AC%20de%2060%20metros%20calle%20montcada%20en%20X%C3%A0tiva%20-%20habitaclia/imgi_29_calle-montcada-local-comercial-xativa_fbcc3c65-ea9d-4505-bb29-05ecc9e8130aG.jpg",
+      "/Images/Local%20Comercial%20por%2063.000%20%E2%82%AC%20de%2060%20metros%20calle%20montcada%20en%20X%C3%A0tiva%20-%20habitaclia/imgi_31_calle-montcada-local-comercial-xativa_eb49f2d0-4eb4-4d46-b7b2-b5a50c948d6aG.jpg",
+      "/Images/Local%20Comercial%20por%2063.000%20%E2%82%AC%20de%2060%20metros%20calle%20montcada%20en%20X%C3%A0tiva%20-%20habitaclia/imgi_34_calle-montcada-local-comercial-xativa_7170fbea-a777-4fa6-875a-51cec50242daG.jpg",
+      "/Images/Local%20Comercial%20por%2063.000%20%E2%82%AC%20de%2060%20metros%20calle%20montcada%20en%20X%C3%A0tiva%20-%20habitaclia/imgi_37_calle-montcada-local-comercial-xativa_cbe0422f-e8de-42b4-ad11-0f92671d5b51G.jpg",
+      "/Images/Local%20Comercial%20por%2063.000%20%E2%82%AC%20de%2060%20metros%20calle%20montcada%20en%20X%C3%A0tiva%20-%20habitaclia/imgi_39_calle-montcada-local-comercial-xativa_f06cf7f0-74e2-48db-bd9d-b7c107860eebG.jpg",
+      "/Images/Local%20Comercial%20por%2063.000%20%E2%82%AC%20de%2060%20metros%20calle%20montcada%20en%20X%C3%A0tiva%20-%20habitaclia/imgi_41_calle-montcada-local-comercial-xativa_0804d7d4-0a59-4805-a802-4d2a2565c8eaG.jpg",
+      "/Images/Local%20Comercial%20por%2063.000%20%E2%82%AC%20de%2060%20metros%20calle%20montcada%20en%20X%C3%A0tiva%20-%20habitaclia/imgi_42_calle-montcada-local-comercial-xativa_599df323-aeb3-4bce-b482-e6562d9309bbG.jpg",
+      "/Images/Local%20Comercial%20por%2063.000%20%E2%82%AC%20de%2060%20metros%20calle%20montcada%20en%20X%C3%A0tiva%20-%20habitaclia/imgi_43_calle-montcada-local-comercial-xativa_06cfd67b-4cb7-439d-867d-2f231376a4e6G.jpg",
+      "/Images/Local%20Comercial%20por%2063.000%20%E2%82%AC%20de%2060%20metros%20calle%20montcada%20en%20X%C3%A0tiva%20-%20habitaclia/imgi_44_calle-montcada-local-comercial-xativa_d4f17682-a572-4b87-aff3-745071ce5081G.jpg",
+      "/Images/Local%20Comercial%20por%2063.000%20%E2%82%AC%20de%2060%20metros%20calle%20montcada%20en%20X%C3%A0tiva%20-%20habitaclia/imgi_45_calle-montcada-local-comercial-xativa_c6342043-cfad-4c85-8895-24232cf60dbbG.jpg",
+      "/Images/Local%20Comercial%20por%2063.000%20%E2%82%AC%20de%2060%20metros%20calle%20montcada%20en%20X%C3%A0tiva%20-%20habitaclia/imgi_47_calle-montcada-local-comercial-xativa_3e21f9e1-56de-40df-bcd8-e73ba3936ea1G.jpg",
+      "/Images/Local%20Comercial%20por%2063.000%20%E2%82%AC%20de%2060%20metros%20calle%20montcada%20en%20X%C3%A0tiva%20-%20habitaclia/imgi_46_calle-montcada-local-comercial-xativa_3216cc94-e71e-4b3d-908c-143f3d42120fG.jpg",
+      "/Images/Local%20Comercial%20por%2063.000%20%E2%82%AC%20de%2060%20metros%20calle%20montcada%20en%20X%C3%A0tiva%20-%20habitaclia/imgi_4_calle-montcada-local-comercial-xativa_220a9790-4601-453b-86be-d9290ba320daXL.jpg"
+    ],
+    url: "https://www.habitaclia.com/"
+  },
+
+  // ================================================================
+  // 29. PLAZA DE GARAJE EN ROCAFORT (encontrada en Habitaclia)
+  // ================================================================
+  {
+    id: "rocafort-garaje-1",
+    operacion: "venta",
+    zona: "Rocafort",
+    tipo: "Comercial",
+    precio: 7500,
+    precioTexto: "7.500 €",
+    hab: 0,
+    m2: 14,
+    planta: "Sótano",
+    ascensor: "No aplica",
+    garaje: "Sí",
+    titulo: "Plaza de garaje en Rocafort",
+    tituloEn: "Parking space in Rocafort",
+    desc: "Casa Creativa Inmobiliaria vende esta amplia plaza de garaje de 14 m² en Rocafort. Una oportunidad sencilla para asegurar aparcamiento propio en una zona muy demandada.",
+    descEn: "Casa Creativa Inmobiliaria is selling this spacious 14 m² parking space in Rocafort. A simple opportunity to secure your own parking in a highly sought-after area.",
+    imgs: [
+      "/Images/Parking%20coche%20por%207.500%20%E2%82%AC%20de%2014%20metros%20calle%20batalla%20d%27almansa%20en%20Rocafort%20-%20habitaclia/imgi_22_calle-batalla-dalmansa-aparcamiento-coche-rocafort_48ef9459-eff7-4e64-9306-6f609f5bd2afG.jpg",
+      "/Images/Parking%20coche%20por%207.500%20%E2%82%AC%20de%2014%20metros%20calle%20batalla%20d%27almansa%20en%20Rocafort%20-%20habitaclia/imgi_23_calle-batalla-dalmansa-aparcamiento-coche-rocafort_51601bed-e3aa-4be7-8ca9-f8e0a0439378G.jpg",
+      "/Images/Parking%20coche%20por%207.500%20%E2%82%AC%20de%2014%20metros%20calle%20batalla%20d%27almansa%20en%20Rocafort%20-%20habitaclia/imgi_24_calle-batalla-dalmansa-aparcamiento-coche-rocafort_3e0d5849-c36e-4373-879a-b30bad32adb3G.jpg",
+      "/Images/Parking%20coche%20por%207.500%20%E2%82%AC%20de%2014%20metros%20calle%20batalla%20d%27almansa%20en%20Rocafort%20-%20habitaclia/imgi_25_calle-batalla-dalmansa-aparcamiento-coche-rocafort_c5abfa64-f148-4d1d-ad0e-507d67491973G.jpg",
+      "/Images/Parking%20coche%20por%207.500%20%E2%82%AC%20de%2014%20metros%20calle%20batalla%20d%27almansa%20en%20Rocafort%20-%20habitaclia/imgi_26_calle-batalla-dalmansa-aparcamiento-coche-rocafort_ba95b115-5317-4710-a9b1-25f95fc77442G.jpg",
+      "/Images/Parking%20coche%20por%207.500%20%E2%82%AC%20de%2014%20metros%20calle%20batalla%20d%27almansa%20en%20Rocafort%20-%20habitaclia/imgi_27_calle-batalla-dalmansa-aparcamiento-coche-rocafort_87a1d27b-efe2-4b63-a088-792de391f464G.jpg",
+      "/Images/Parking%20coche%20por%207.500%20%E2%82%AC%20de%2014%20metros%20calle%20batalla%20d%27almansa%20en%20Rocafort%20-%20habitaclia/imgi_28_calle-batalla-dalmansa-aparcamiento-coche-rocafort_648d8ec3-d762-4cea-8fbb-0bd271c751a2G.jpg",
+      "/Images/Parking%20coche%20por%207.500%20%E2%82%AC%20de%2014%20metros%20calle%20batalla%20d%27almansa%20en%20Rocafort%20-%20habitaclia/imgi_30_plaza-de-garaje-en-rocafort-rocafort_f3adbedf-0624-4e12-9107-61aa8c4d3ad4.jpg"
+    ],
+    url: "https://www.habitaclia.com/"
   }
 ];
