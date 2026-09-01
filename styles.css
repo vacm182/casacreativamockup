@@ -241,6 +241,15 @@ footer.site{ padding:44px 32px 22px; border-top:1px solid var(--line); margin-to
 .footer-grid a{ display:block; color:var(--ink); text-decoration:none; opacity:.78; margin-bottom:8px; }
 .footer-bottom{ max-width:1200px; margin:22px auto 0; padding-top:16px; border-top:1px solid var(--line); font-family:'Inter',sans-serif; font-size:11px; color:var(--gray); display:flex; justify-content:space-between; }
 
+.social-row{ display:flex; gap:8px; margin-top:10px; }
+.social-icon{
+  width:30px; height:30px; border-radius:50%; border:1px solid var(--line);
+  display:flex; align-items:center; justify-content:center; color:var(--ink);
+  transition:background .18s ease, border-color .18s ease, color .18s ease; flex-shrink:0;
+}
+.social-icon:hover{ background:var(--clay); border-color:var(--clay); color:#fff; }
+.social-icon svg{ width:14px; height:14px; fill:currentColor; }
+
 /* ---- Toolbar (listado) ---- */
 .toolbar{ display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:0 auto; padding:30px 32px 16px; flex-wrap:wrap; gap:10px; }
 .toolbar h2{ font-size:22px; }
