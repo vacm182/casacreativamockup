@@ -252,6 +252,7 @@ footer.site{ padding:44px 32px 22px; border-top:1px solid var(--line); margin-to
 .review-card p{ font-family:'Inter',sans-serif; font-size:13.5px; line-height:1.6; color:var(--ink); margin:0 0 14px; }
 .review-card .author{ font-family:'Inter',sans-serif; font-size:12.5px; font-weight:600; color:var(--gray); }
 .review-card .tag{ font-size:11px; color:var(--clay-deep); text-transform:uppercase; letter-spacing:.03em; font-weight:600; }
+.social-row{ display:flex !important; gap:8px; margin-top:10px; flex-wrap:wrap; }
 .social-icon, .footer-grid a.social-icon{
   display:flex !important; align-items:center; justify-content:center;
   width:30px !important; height:30px !important; min-width:30px; max-width:30px;
