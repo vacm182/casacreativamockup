@@ -138,7 +138,7 @@ function contactarFicha(tipo){
   const nombreEs = p ? p.titulo : "un inmueble";
   const nombreEn = p ? (p.tituloEn || p.titulo) : "a property";
   const msg = tipo === 'visita'
-    ? `Hola! Quisiera agendar una visita para: ${nombreEs}\n/ Hi! I'd like to schedule a viewing for: ${nombreEn}`
+    ? `Hola! Quisiera concertar una visita para: ${nombreEs}\n/ Hi! I'd like to schedule a viewing for: ${nombreEn}`
     : `Hola! Me interesa más información sobre: ${nombreEs}\n/ Hi! I'm interested in more info about: ${nombreEn}`;
   abrirWhatsApp(msg, p ? p.operacion : "venta");
 }

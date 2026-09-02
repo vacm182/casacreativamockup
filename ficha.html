@@ -17,7 +17,9 @@
   <nav class="site-links" id="site-nav">
     <a href="comprar.html">Comprar</a>
     <a href="alquilar.html">Alquilar</a>
+    <a href="busca-alquiler.html">Busca tu alquiler</a>
     <a href="vende.html">Vende tu casa</a>
+    <a href="financiacion.html">Financiación</a>
     <a href="servicios.html">Servicios</a>
     <a href="nosotros.html">Nosotros</a>
     <a href="contacto.html">Contacto</a>
@@ -49,7 +51,7 @@
       </p>
     </div>
     <div><h4>Inmuebles</h4><a href="comprar.html">Comprar</a><a href="alquilar.html">Alquilar</a></div>
-    <div><h4>Agencia</h4><a href="servicios.html">Servicios</a><a href="vende.html">Vende tu casa</a><a href="nosotros.html">Nosotros</a></div>
+    <div><h4>Agencia</h4><a href="servicios.html">Servicios</a><a href="vende.html">Vende tu casa</a><a href="busca-alquiler.html">Busca tu alquiler</a><a href="financiacion.html">Financiación</a><a href="nosotros.html">Nosotros</a></div>
     <div><h4>Presencia online</h4><span style="display:block; color:var(--ink); opacity:.78; margin-bottom:8px;">Tu propiedad también publicada en<br>los principales portales inmobiliarios</span><span style="display:block; opacity:.65; margin-top:4px;">+ casi 70 portales más</span>
       <div class="social-row">
         <a href="#" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 1.972-.287 1.696h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a>
@@ -110,6 +112,18 @@
           <div><b>${p.garaje}</b>${UI.garaje}</div>
         </div>
         <p class="desc">${desc}</p>
+        ${p.operacion === 'venta' ? `
+        <div class="mortgage-block">
+          <div class="eyebrow">Simulador de hipoteca</div>
+          <div class="row"><label>Entrada</label><input type="range" id="hip-entrada" min="10" max="50" value="20" step="1"><span class="val" id="hip-entrada-val">20%</span></div>
+          <div class="row"><label>Años</label><input type="range" id="hip-anios" min="5" max="30" value="25" step="1"><span class="val" id="hip-anios-val">25</span></div>
+          <div class="row"><label>Interés</label><input type="range" id="hip-interes" min="1" max="6" value="3.2" step="0.1"><span class="val" id="hip-interes-val">3,2%</span></div>
+          <div class="result">
+            <span class="label">Cuota mensual estimada</span>
+            <span class="amount" id="hip-cuota">— €</span>
+          </div>
+          <div class="note">*Cálculo aproximado. Habla con nuestro broker para una simulación real con tu perfil — <a href="financiacion.html" style="color:inherit;">ver financiación</a>.</div>
+        </div>` : ''}
         ${p.videos && p.videos.length ? `
         <div class="video-block">
           <div class="eyebrow">${p.videos.length > 1 ? 'Videos del inmueble' : 'Video del inmueble'}</div>
@@ -160,6 +174,35 @@
   document.getElementById('lightbox').addEventListener('click', (e) => {
     if(e.target.id === 'lightbox') cerrarLightbox();
   });
+
+  // ---- Simulador de hipoteca ----
+  if(p && p.operacion === 'venta'){
+    const $entrada = document.getElementById('hip-entrada');
+    const $anios = document.getElementById('hip-anios');
+    const $interes = document.getElementById('hip-interes');
+    function calcularHipoteca(){
+      const precio = p.precio;
+      const entradaPct = Number($entrada.value);
+      const anios = Number($anios.value);
+      const interesAnual = Number($interes.value);
+      document.getElementById('hip-entrada-val').textContent = entradaPct + '%';
+      document.getElementById('hip-anios-val').textContent = anios;
+      document.getElementById('hip-interes-val').textContent = interesAnual.toFixed(1).replace('.', ',') + '%';
+
+      const capital = precio * (1 - entradaPct / 100);
+      const tasaMensual = interesAnual / 100 / 12;
+      const nMeses = anios * 12;
+      let cuota;
+      if(tasaMensual === 0){
+        cuota = capital / nMeses;
+      } else {
+        cuota = capital * (tasaMensual * Math.pow(1 + tasaMensual, nMeses)) / (Math.pow(1 + tasaMensual, nMeses) - 1);
+      }
+      document.getElementById('hip-cuota').textContent = Math.round(cuota).toLocaleString('es-ES') + ' €/mes';
+    }
+    [$entrada, $anios, $interes].forEach(el => el.addEventListener('input', calcularHipoteca));
+    calcularHipoteca();
+  }
 </script>
 </body>
 </html>
