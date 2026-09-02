@@ -35,10 +35,27 @@
   <div class="hero-media">
     <div class="frame">
       <img src="https://images.unsplash.com/photo-1754403369158-a2cb127c53ac?w=1600&q=80&auto=format&fit=crop" alt="Calle histórica en Valencia">
-      <div class="hero-text-overlay">
-        <div class="eyebrow">Valencia · Xàtiva · Gandia · Castellón</div>
-        <h1>Tu próxima casa, <em>entre el mar y el interior.</em></h1>
-        <p class="lede">Casas, pisos y fincas rurales en toda la provincia de Valencia. Te acompañamos en español e inglés, de principio a fin.</p>
+      <div class="hero-text-overlay" id="hero-slides">
+        <div class="hero-slide active">
+          <div class="eyebrow">Valencia · Xàtiva · Gandia · Castellón</div>
+          <h1>Tu próxima casa, <em>entre el mar y el interior.</em></h1>
+          <p class="lede">Casas, pisos y fincas rurales en toda la provincia de Valencia. Te acompañamos en español e inglés, de principio a fin.</p>
+        </div>
+        <div class="hero-slide">
+          <div class="eyebrow">Nuestro compromiso</div>
+          <h1>Trato de <em>tú a tú</em>, del primer contacto hasta mucho después de entregar las llaves.</h1>
+          <p class="lede">Un mismo agente te acompaña de principio a fin, con trato cercano y honesto en cada paso.</p>
+        </div>
+        <div class="hero-slide">
+          <div class="eyebrow">Zonas donde trabajamos</div>
+          <h1>De la costa al interior, <em>sin perder de vista tu zona.</em></h1>
+          <p class="lede">Vinaròs, Castellón, Xàtiva, Náquera, Valencia ciudad, Gandia, Cullera y toda la costa.</p>
+        </div>
+        <div class="hero-slide">
+          <div class="eyebrow">Por qué Casa Creativa</div>
+          <h1>Cercanía local, <em>mirada internacional.</em></h1>
+          <p class="lede">Atención bilingüe, cartera verificada y servicio integral, todo en un mismo lugar.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -71,15 +88,6 @@
   </a>
 </div>
 
-<div class="promise">
-  <h2>Trato de <em>tú a tú</em>, del primer contacto hasta mucho después de entregar las llaves.</h2>
-  <div class="pillars">
-    <div class="pillar"><span class="kicker">Compradores e inquilinos</span><p>Un mismo agente te acompaña de principio a fin.</p></div>
-    <div class="pillar"><span class="kicker">Propietarios</span><p>Trato cercano y honesto en cada paso, desde la valoración hasta la firma.</p></div>
-    <div class="pillar"><span class="kicker">Después de la venta</span><p>Seguimos disponibles cuando nos necesites.</p></div>
-  </div>
-</div>
-
 <section class="section">
   <div class="section-head">
     <div class="eyebrow">Selección</div>
@@ -104,12 +112,6 @@
   </div>
 </div>
 
-<div class="coverage">
-  <div class="eyebrow" style="color:var(--clay-deep);">Zonas donde trabajamos</div>
-  <h2>De la costa al interior, sin perder de vista tu zona</h2>
-  <div class="towns"><span>Vinaròs</span> · Castellón · <span>Xàtiva</span> · Interior · <span>Náquera</span> · Área metropolitana · <span>Valencia ciudad</span> · <span>Gandia</span> · <span>Cullera</span> · Costa</div>
-</div>
-
 <div class="feature-row">
   <div class="media"><img src="Images/assets/tasacion-valencia.jpg" alt="Tasación de bienes raíces en Valencia"></div>
   <div class="copy">
@@ -119,18 +121,6 @@
     <a class="btn primary" href="vende.html" style="margin-top:20px; display:inline-flex;">Pedir valoración</a>
   </div>
 </div>
-
-<section class="section tight">
-  <div class="section-head">
-    <div class="eyebrow">Por qué Casa Creativa</div>
-    <h2>Cercanía local, mirada internacional</h2>
-  </div>
-  <div class="why-list">
-    <div class="why-item"><h3>Atención bilingüe</h3><p>Acompañamos tanto a compradores locales como a la comunidad internacional que busca vivienda en la Comunidad Valenciana.</p></div>
-    <div class="why-item"><h3>Cartera verificada</h3><p>Inmuebles reales, publicados y actualizados en los principales portales inmobiliarios — visibles también aquí.</p></div>
-    <div class="why-item"><h3>Servicio integral</h3><p>Certificado energético, tasaciones, seguros y gestión de herencias, todo en un mismo lugar.</p></div>
-  </div>
-</section>
 
 <section class="section tight">
   <div class="valuation">
@@ -236,6 +226,24 @@
     if(precio) params.set('precio', precio);
     window.location.href = 'comprar.html?' + params.toString();
   }
+
+  // ---- Carrusel de texto sobre el hero ----
+  (function(){
+    const slides = document.querySelectorAll('#hero-slides .hero-slide');
+    if(!slides.length) return;
+    let current = 0;
+    function mostrarSlide(next){
+      const oldEl = slides[current];
+      const newEl = slides[next];
+      oldEl.classList.remove('active');
+      oldEl.classList.add('prev');
+      newEl.classList.remove('prev');
+      void newEl.offsetWidth; // fuerza el reflow para que no anime el salto
+      newEl.classList.add('active');
+      current = next;
+    }
+    setInterval(() => mostrarSlide((current + 1) % slides.length), 6000);
+  })();
 </script>
 </body>
 </html>
