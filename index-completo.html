@@ -142,7 +142,17 @@
     <div class="eyebrow">Territorio</div>
     <h2>Conocemos el territorio</h2>
   </div>
-  <div class="zonas-grid" id="grid-zonas"></div>
+  <div class="region-map-block">
+    <iframe src="https://www.google.com/maps?q=Xàtiva,%20Val%C3%A8ncia,%20Espa%C3%B1a&z=9&output=embed" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <div class="zonas-lista">
+    <a href="comprar.html?zona=Valencia">Valencia</a>
+    <a href="comprar.html?zona=Xàtiva">Xàtiva</a>
+    <a href="comprar.html?zona=Gandia">Gandia</a>
+    <a href="comprar.html?zona=Cullera">Cullera</a>
+    <a href="comprar.html?zona=Náquera">Náquera</a>
+    <a href="comprar.html?zona=Castellón%20de%20la%20Plana">Castellón de la Plana</a>
+  </div>
 </section>
 
 <section class="section tight" style="text-align:center;">
@@ -205,21 +215,6 @@
     const destino = modoBusqueda === 'alquiler' ? 'alquilar.html' : 'comprar.html';
     window.location.href = destino + '?' + params.toString();
   }
-
-  // ---- Cuadrícula de zonas, usando fotos reales de propiedades de cada zona ----
-  (function(){
-    const zonas = ['Valencia', 'Gandia', 'Xàtiva', 'Cullera', 'Castellón de la Plana', 'Náquera'];
-    const cont = document.getElementById('grid-zonas');
-    zonas.forEach(z => {
-      const prop = PROPIEDADES.find(p => p.zona.includes(z) && p.imgs && p.imgs.length);
-      const foto = prop ? prop.imgs[0] : '';
-      const div = document.createElement('a');
-      div.className = 'zona-card';
-      div.href = 'comprar.html?zona=' + encodeURIComponent(z);
-      div.innerHTML = `${foto ? `<img src="${foto}" alt="${z}">` : ''}<div class="name">${z}</div>`;
-      cont.appendChild(div);
-    });
-  })();
 </script>
 </body>
 </html>
