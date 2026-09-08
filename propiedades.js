@@ -265,16 +265,16 @@ const PROPIEDADES = [
     desc: "Apartamento tipo loft muy luminoso en Cullera, con gran terraza y espectaculares vistas al Castillo de Cullera, la montaña y el mar Mediterráneo. Existe la posibilidad de crear un dormitorio independiente mediante una puerta corredera. Edificio con dos ascensores.",
     descEn: "A bright loft-style apartment in Cullera with a large terrace and spectacular views of Cullera Castle, the mountains and the Mediterranean Sea. A separate bedroom can be created using a sliding door. Building with two lifts.",
     imgs: [
-      "/Images/Cullera%20-%20Apartamento%20en%20venta%20-%20fotos%20reales/foto-01.jpg",
+      "/Images/Cullera%20-%20Apartamento%20en%20venta%20-%20fotos%20reales/foto-09.jpg",
+      "/Images/Cullera%20-%20Apartamento%20en%20venta%20-%20fotos%20reales/foto-10.jpg",
       "/Images/Cullera%20-%20Apartamento%20en%20venta%20-%20fotos%20reales/foto-02.jpg",
-      "/Images/Cullera%20-%20Apartamento%20en%20venta%20-%20fotos%20reales/foto-03.jpg",
       "/Images/Cullera%20-%20Apartamento%20en%20venta%20-%20fotos%20reales/foto-04.jpg",
       "/Images/Cullera%20-%20Apartamento%20en%20venta%20-%20fotos%20reales/foto-05.jpg",
       "/Images/Cullera%20-%20Apartamento%20en%20venta%20-%20fotos%20reales/foto-06.jpg",
+      "/Images/Cullera%20-%20Apartamento%20en%20venta%20-%20fotos%20reales/foto-03.jpg",
       "/Images/Cullera%20-%20Apartamento%20en%20venta%20-%20fotos%20reales/foto-07.jpg",
       "/Images/Cullera%20-%20Apartamento%20en%20venta%20-%20fotos%20reales/foto-08.jpg",
-      "/Images/Cullera%20-%20Apartamento%20en%20venta%20-%20fotos%20reales/foto-09.jpg",
-      "/Images/Cullera%20-%20Apartamento%20en%20venta%20-%20fotos%20reales/foto-10.jpg"
+      "/Images/Cullera%20-%20Apartamento%20en%20venta%20-%20fotos%20reales/foto-01.jpg"
     ],
     videos: ["/Images/Cullera%20-%20Apartamento%20en%20venta%20-%20fotos%20reales/video.mp4"],
     url: "https://www.idealista.com/pro/casa-creativa-inmobiliaria/inmueble/111863835/"
