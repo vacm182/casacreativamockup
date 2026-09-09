@@ -85,9 +85,10 @@
 
     const totalFotos = p.imgs.length;
     // Si hay menos de 5 fotos, repetimos para rellenar el collage visualmente
+    const FALLBACK_IMG = "https://images.unsplash.com/photo-1748033766479-fa6b0f9f6b33?w=900&q=80&auto=format&fit=crop";
     const imgs = totalFotos > 0
       ? [0,1,2,3,4].map(i => p.imgs[i % totalFotos])
-      : ["https://images.unsplash.com/photo-1748033766479-fa6b0f9f6b33?w=900&q=80&auto=format&fit=crop"];
+      : [FALLBACK_IMG, FALLBACK_IMG, FALLBACK_IMG, FALLBACK_IMG, FALLBACK_IMG];
 
     wrap.innerHTML = `
       <div>
