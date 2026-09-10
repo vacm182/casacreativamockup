@@ -122,14 +122,16 @@ function enviarVende(){
 }
 
 function enviarContacto(){
+  const motivo = document.getElementById('contacto-motivo').value.trim();
   const nombre = document.getElementById('contacto-nombre').value.trim();
   const tel = document.getElementById('contacto-telefono').value.trim();
   const mensaje = document.getElementById('contacto-mensaje').value.trim();
   if(!nombre || !tel){ alert(UI.fillContact); return; }
   const msg = `Hola! Soy ${nombre}. / Hi! I'm ${nombre}.\n`
+    + `${motivo ? `Motivo: ${motivo}\n` : ''}`
     + `${mensaje || '(sin mensaje adicional / no additional message)'}\n`
     + `Mi teléfono / My phone: ${tel}`;
-  abrirWhatsApp(msg);
+  abrirWhatsApp(msg, motivo === 'Alquilar' ? 'alquiler' : 'venta');
 }
 
 function contactarFicha(tipo){
