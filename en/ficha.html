@@ -36,6 +36,11 @@
   <div class="lb-counter" id="lightbox-counter"></div>
 </div>
 
+<div class="lightbox" id="video-modal">
+  <button class="lb-close" onclick="cerrarVideoModal()">&times;</button>
+  <video id="video-modal-player" controls style="max-width:90vw; max-height:85vh;"></video>
+</div>
+
 <footer class="site">
   <div class="footer-grid">
     <div>
@@ -86,15 +91,23 @@
     const imgs = totalFotos > 0
       ? [0,1,2,3,4].map(i => p.imgs[i % totalFotos])
       : [FALLBACK_IMG, FALLBACK_IMG, FALLBACK_IMG, FALLBACK_IMG, FALLBACK_IMG];
+    const tieneVideo = p.videos && p.videos.length > 0;
 
     wrap.innerHTML = `
       <div>
         <div class="gallery">
-          <div onclick="abrirLightbox(0)"><img src="${imgs[0]}" alt=""></div>
+          <div onclick="abrirLightbox(0)" style="position:relative;">
+            <img src="${imgs[0]}" alt="">
+            ${p.destacada ? `<span class="badge-destacada">Featured</span>` : ''}
+          </div>
           <div onclick="abrirLightbox(1)"><img src="${imgs[1]}" alt=""></div>
           <div onclick="abrirLightbox(2)"><img src="${imgs[2]}" alt=""></div>
           <div onclick="abrirLightbox(3)"><img src="${imgs[3]}" alt=""></div>
-          <div onclick="abrirLightbox(4)"><img src="${imgs[4]}" alt=""></div>
+          ${tieneVideo ? `
+          <div onclick="abrirVideoModal(0)" style="position:relative; cursor:pointer;">
+            <img src="${imgs[4]}" alt="">
+            <div class="video-thumb-overlay"><span>▶</span></div>
+          </div>` : `<div onclick="abrirLightbox(4)"><img src="${imgs[4]}" alt=""></div>`}
           ${totalFotos > 0 ? `<span class="ver-todas" onclick="abrirLightbox(0)">▦ Show all photos (${totalFotos})</span>` : ''}
         </div>
         <div class="detail-title">
@@ -110,13 +123,30 @@
           <div><b>${p.garaje}</b>${UI.garaje}</div>
         </div>
         <p class="desc">${desc}</p>
-        ${p.videos && p.videos.length ? `
-        <div class="video-block">
-          <div class="eyebrow">${p.videos.length > 1 ? 'Property videos' : 'Property video'}</div>
-          ${p.videos.map(v => `<video controls preload="metadata" src="${v}" style="margin-bottom:10px;"></video>`).join('')}
-        </div>` : ''}
         <div class="map-block">
           <iframe src="https://www.google.com/maps?q=${encodeURIComponent(p.zona + ', Valencia, Spain')}&output=embed" loading="lazy" allowfullscreen></iframe>
+        </div>
+        ${p.operacion === 'venta' ? `
+        <div class="mortgage-block">
+          <div style="display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:10px;">
+            <div>
+              <div style="font-family:'Fraunces',serif; font-size:15px; color:var(--ink);">Let's do the math?</div>
+              <div style="font-family:'Inter',sans-serif; font-size:11px; color:var(--gray); margin-top:2px;">See your estimated monthly payment</div>
+            </div>
+            <span class="amount" id="hip-cuota" style="font-size:14px;">— €</span>
+          </div>
+          <div class="row"><label>Down</label><input type="range" id="hip-entrada" min="10" max="50" value="20" step="1"><span class="val" id="hip-entrada-val" style="width:auto; min-width:90px;">20%</span></div>
+          <div class="row"><label>Years</label><input type="range" id="hip-anios" min="5" max="30" value="25" step="1"><span class="val" id="hip-anios-val">25</span></div>
+          <div class="row"><label>Rate</label><input type="range" id="hip-interes" min="1" max="6" value="3.2" step="0.1"><span class="val" id="hip-interes-val">3.2%</span></div>
+          <div class="note">This is just a rough estimate — for something more precise and tailored to you, talk to our trusted broker, no strings attached — <a href="financiacion.html" style="color:var(--clay-deep); font-weight:600;">see financing</a>.</div>
+        </div>` : ''}
+        <div class="cierre-calido">
+          <h3>Like this property?</h3>
+          <p>Let's talk.</p>
+          <div class="cierre-botones">
+            <button class="btn primary" onclick="contactarFicha('info')">${UI.whatsappBtn}</button>
+            <button class="btn outline" onclick="contactarFicha('visita')">${UI.visitBtn}</button>
+          </div>
         </div>
       </div>
       <div class="sidebar-card">
@@ -160,6 +190,50 @@
   document.getElementById('lightbox').addEventListener('click', (e) => {
     if(e.target.id === 'lightbox') cerrarLightbox();
   });
+
+  // ---- Video modal ----
+  function abrirVideoModal(i){
+    if(!p || !p.videos || !p.videos.length) return;
+    const player = document.getElementById('video-modal-player');
+    player.src = p.videos[i];
+    document.getElementById('video-modal').classList.add('open');
+    player.play();
+  }
+  function cerrarVideoModal(){
+    const player = document.getElementById('video-modal-player');
+    player.pause();
+    player.src = '';
+    document.getElementById('video-modal').classList.remove('open');
+  }
+
+  // ---- Mortgage calculator ----
+  if(p && p.operacion === 'venta'){
+    const $entrada = document.getElementById('hip-entrada');
+    const $anios = document.getElementById('hip-anios');
+    const $interes = document.getElementById('hip-interes');
+    function calcularHipoteca(){
+      const precio = p.precio;
+      const entradaPct = Number($entrada.value);
+      const anios = Number($anios.value);
+      const interesAnual = Number($interes.value);
+      document.getElementById('hip-entrada-val').textContent = entradaPct + '% · €' + Math.round(precio * entradaPct / 100).toLocaleString('en-GB');
+      document.getElementById('hip-anios-val').textContent = anios;
+      document.getElementById('hip-interes-val').textContent = interesAnual.toFixed(1) + '%';
+
+      const capital = precio * (1 - entradaPct / 100);
+      const tasaMensual = interesAnual / 100 / 12;
+      const nMeses = anios * 12;
+      let cuota;
+      if(tasaMensual === 0){
+        cuota = capital / nMeses;
+      } else {
+        cuota = capital * (tasaMensual * Math.pow(1 + tasaMensual, nMeses)) / (Math.pow(1 + tasaMensual, nMeses) - 1);
+      }
+      document.getElementById('hip-cuota').textContent = '€' + Math.round(cuota).toLocaleString('en-GB') + '/mo';
+    }
+    [$entrada, $anios, $interes].forEach(el => el.addEventListener('input', calcularHipoteca));
+    calcularHipoteca();
+  }
 </script>
 </body>
 </html>
