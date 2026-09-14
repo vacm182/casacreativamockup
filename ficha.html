@@ -99,30 +99,43 @@
 
     wrap.innerHTML = `
       <div>
-        <div class="gallery">
-          <div class="carousel-main" onclick="abrirLightbox(lbCarruselIndex)">
-            <img id="carousel-main-img" src="${thumbImgs[0]}" alt="">
-            ${p.destacada ? `<span class="badge-destacada">Destacada</span>` : ''}
+        <div class="hero-3col">
+          <div class="hero-3col-info">
+            <div class="eyebrow">${p.zona} · ${p.tipo}</div>
+            <h1>${titulo}</h1>
+            <div class="detail-price">${p.precioTexto} ${p.operacion==='venta' ? `<span>· ${Math.round(p.precio/p.m2).toLocaleString('es-ES')} €/m²</span>` : ''}</div>
+            <div class="spec-row spec-row-vert">
+              <div><b>${p.hab}</b>${UI.habitaciones}</div>
+              <div><b>${p.m2} m²</b>${UI.superficie}</div>
+              <div><b>${p.planta}</b>${UI.planta}</div>
+              <div><b>${p.ascensor}</b>${UI.ascensor}</div>
+              <div><b>${p.garaje}</b>${UI.garaje}</div>
+            </div>
           </div>
-          <div class="carousel-thumbs" id="carousel-thumbs">
-            ${thumbImgs.map((src, i) => `<div class="thumb${i===0?' active':''}" data-tipo="foto" data-index="${i}" onclick="event.stopPropagation(); seleccionarMiniatura(${i}, 'foto')"><img src="${src}" alt=""></div>`).join('')}
-            ${tieneVideo ? `<div class="thumb video-thumb" data-tipo="video" onclick="event.stopPropagation(); abrirVideoModal(0)"><img src="${thumbImgs[thumbImgs.length-1] || FALLBACK_IMG}" alt=""></div>` : ''}
-            ${totalFotos > 0 ? `<div class="thumb ver-todas-thumb" onclick="event.stopPropagation(); abrirLightbox(0)"><img src="${thumbImgs[thumbImgs.length-1] || FALLBACK_IMG}" alt=""><span>+${totalFotos}</span></div>` : ''}
+          <div class="hero-3col-media">
+            <div class="carousel-main" onclick="abrirLightbox(lbCarruselIndex)">
+              <img id="carousel-main-img" src="${thumbImgs[0]}" alt="">
+              ${p.destacada ? `<span class="badge-destacada">Destacada</span>` : ''}
+              <div class="carousel-thumbs" id="carousel-thumbs">
+                ${thumbImgs.map((src, i) => `<div class="thumb${i===0?' active':''}" data-tipo="foto" data-index="${i}" onclick="event.stopPropagation(); seleccionarMiniatura(${i}, 'foto')"><img src="${src}" alt=""></div>`).join('')}
+                ${tieneVideo ? `<div class="thumb video-thumb" data-tipo="video" onclick="event.stopPropagation(); abrirVideoModal(0)"><img src="${thumbImgs[thumbImgs.length-1] || FALLBACK_IMG}" alt=""></div>` : ''}
+                ${totalFotos > 0 ? `<div class="thumb ver-todas-thumb" onclick="event.stopPropagation(); abrirLightbox(0)"><img src="${thumbImgs[thumbImgs.length-1] || FALLBACK_IMG}" alt=""><span>+${totalFotos}</span></div>` : ''}
+              </div>
+            </div>
           </div>
         </div>
-        <div class="detail-title">
-          <div class="eyebrow">${p.zona} · ${p.tipo}</div>
-          <h1>${titulo}</h1>
-          <div class="detail-price">${p.precioTexto} ${p.operacion==='venta' ? `<span>· ${Math.round(p.precio/p.m2).toLocaleString('es-ES')} €/m²</span>` : ''}</div>
+        <div class="desc-cierre-2col">
+          <p class="desc">${desc}</p>
+          <div class="cierre-calido">
+            <h3>¿Te gustó esta propiedad?</h3>
+            <p>Hablemos.</p>
+            <div class="cierre-botones">
+              <button class="btn primary" onclick="contactarFicha('info')">${UI.whatsappBtn}</button>
+              <button class="btn outline" onclick="contactarFicha('visita')">${UI.visitBtn}</button>
+            </div>
+          </div>
         </div>
-        <div class="spec-row">
-          <div><b>${p.hab}</b>${UI.habitaciones}</div>
-          <div><b>${p.m2} m²</b>${UI.superficie}</div>
-          <div><b>${p.planta}</b>${UI.planta}</div>
-          <div><b>${p.ascensor}</b>${UI.ascensor}</div>
-          <div><b>${p.garaje}</b>${UI.garaje}</div>
-        </div>
-        <p class="desc">${desc}</p>
+        <p class="map-title">Así de bien ubicada está</p>
         <div class="map-block">
           <iframe src="https://www.google.com/maps?q=${encodeURIComponent(p.zona + ', Valencia, España')}&output=embed" loading="lazy" allowfullscreen></iframe>
         </div>
@@ -140,14 +153,6 @@
           <div class="row"><label>Interés</label><input type="range" id="hip-interes" min="1" max="6" value="3.2" step="0.1"><span class="val" id="hip-interes-val">3,2%</span></div>
           <div class="note">Esto es solo una idea aproximada — para algo más certero y ajustado a ti, habla con nuestro broker de confianza, sin compromiso — <a href="financiacion.html" style="color:var(--clay-deep); font-weight:600;">ver financiación</a>.</div>
         </div>` : ''}
-        <div class="cierre-calido">
-          <h3>¿Te gustó esta propiedad?</h3>
-          <p>Hablemos.</p>
-          <div class="cierre-botones">
-            <button class="btn primary" onclick="contactarFicha('info')">${UI.whatsappBtn}</button>
-            <button class="btn outline" onclick="contactarFicha('visita')">${UI.visitBtn}</button>
-          </div>
-        </div>
       </div>`;
   }
 
