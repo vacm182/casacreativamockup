@@ -107,8 +107,8 @@
           <div class="carousel-thumbs" id="carousel-thumbs">
             ${thumbImgs.map((src, i) => `<div class="thumb${i===0?' active':''}" data-tipo="foto" data-index="${i}" onclick="event.stopPropagation(); seleccionarMiniatura(${i}, 'foto')"><img src="${src}" alt=""></div>`).join('')}
             ${tieneVideo ? `<div class="thumb video-thumb" data-tipo="video" onclick="event.stopPropagation(); abrirVideoModal(0)"><img src="${thumbImgs[thumbImgs.length-1] || FALLBACK_IMG}" alt=""></div>` : ''}
+            ${totalFotos > 0 ? `<div class="thumb ver-todas-thumb" onclick="event.stopPropagation(); abrirLightbox(0)"><img src="${thumbImgs[thumbImgs.length-1] || FALLBACK_IMG}" alt=""><span>+${totalFotos}</span></div>` : ''}
           </div>
-          ${totalFotos > 0 ? `<span class="ver-todas" onclick="abrirLightbox(0)">▦ Mostrar todas las fotos (${totalFotos})</span>` : ''}
         </div>
         <div class="detail-title">
           <div class="eyebrow">${p.zona} · ${p.tipo}</div>
