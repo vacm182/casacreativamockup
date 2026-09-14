@@ -88,26 +88,23 @@
 
     const totalFotos = p.imgs.length;
     const FALLBACK_IMG = "https://images.unsplash.com/photo-1748033766479-fa6b0f9f6b33?w=900&q=80&auto=format&fit=crop";
-    const imgs = totalFotos > 0
-      ? [0,1,2,3,4].map(i => p.imgs[i % totalFotos])
-      : [FALLBACK_IMG, FALLBACK_IMG, FALLBACK_IMG, FALLBACK_IMG, FALLBACK_IMG];
     const tieneVideo = p.videos && p.videos.length > 0;
+    const numThumbs = tieneVideo ? 5 : 6;
+    const thumbImgs = totalFotos > 0
+      ? Array.from({length: Math.min(numThumbs, totalFotos)}, (_, i) => p.imgs[i])
+      : [FALLBACK_IMG];
 
     wrap.innerHTML = `
       <div>
         <div class="gallery">
-          <div onclick="abrirLightbox(0)" style="position:relative;">
-            <img src="${imgs[0]}" alt="">
+          <div class="carousel-main" onclick="abrirLightbox(lbCarruselIndex)">
+            <img id="carousel-main-img" src="${thumbImgs[0]}" alt="">
             ${p.destacada ? `<span class="badge-destacada">Featured</span>` : ''}
           </div>
-          <div onclick="abrirLightbox(1)"><img src="${imgs[1]}" alt=""></div>
-          <div onclick="abrirLightbox(2)"><img src="${imgs[2]}" alt=""></div>
-          <div onclick="abrirLightbox(3)"><img src="${imgs[3]}" alt=""></div>
-          ${tieneVideo ? `
-          <div onclick="abrirVideoModal(0)" style="position:relative; cursor:pointer;">
-            <img src="${imgs[4]}" alt="">
-            <div class="video-thumb-overlay"><span>▶</span></div>
-          </div>` : `<div onclick="abrirLightbox(4)"><img src="${imgs[4]}" alt=""></div>`}
+          <div class="carousel-thumbs" id="carousel-thumbs">
+            ${thumbImgs.map((src, i) => `<div class="thumb${i===0?' active':''}" data-tipo="foto" data-index="${i}" onclick="event.stopPropagation(); seleccionarMiniatura(${i}, 'foto')"><img src="${src}" alt=""></div>`).join('')}
+            ${tieneVideo ? `<div class="thumb video-thumb" data-tipo="video" onclick="event.stopPropagation(); abrirVideoModal(0)"><img src="${thumbImgs[thumbImgs.length-1] || FALLBACK_IMG}" alt=""></div>` : ''}
+          </div>
           ${totalFotos > 0 ? `<span class="ver-todas" onclick="abrirLightbox(0)">▦ Show all photos (${totalFotos})</span>` : ''}
         </div>
         <div class="detail-title">
@@ -163,6 +160,14 @@
   // ---- Photo viewer (lightbox) ----
   let lbFotos = p ? p.imgs : [];
   let lbIndex = 0;
+  let lbCarruselIndex = 0;
+
+  function seleccionarMiniatura(i, tipo){
+    lbCarruselIndex = i;
+    document.getElementById('carousel-main-img').src = p.imgs[i];
+    document.querySelectorAll('#carousel-thumbs .thumb').forEach(t => t.classList.remove('active'));
+    document.querySelector(`#carousel-thumbs .thumb[data-index="${i}"]`).classList.add('active');
+  }
 
   function abrirLightbox(i){
     if(!lbFotos.length) return;
