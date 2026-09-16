@@ -310,7 +310,7 @@ footer.site{ padding:44px 32px 22px; border-top:1px solid var(--line); margin-to
 /* ---- Detail page (ficha) ---- */
 .breadcrumb{ font-family:'Inter',sans-serif; font-size:12px; color:var(--gray); padding:22px 32px 0; max-width:1200px; margin:0 auto; }
 .detail-wrap{ max-width:960px; margin:0 auto; padding:14px 32px 90px; }
-.hero-3col{ display:flex; gap:0; margin-top:20px; border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+.hero-3col{ display:flex; gap:0; margin-top:20px; overflow:hidden; width:100vw; position:relative; left:50%; right:50%; margin-left:-50vw; margin-right:-50vw; }
 .hero-3col-info{ width:33%; flex-shrink:0; padding:24px 22px; display:flex; flex-direction:column; justify-content:center; border-right:1px solid var(--line); background:var(--bg); }
 .hero-3col-info h1{ font-size:19px; margin:8px 0 10px; line-height:1.3; }
 .hero-3col-media{ width:67%; }
