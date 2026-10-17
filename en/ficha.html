@@ -82,7 +82,7 @@
     </div>`;
   } else {
     const titulo = p.tituloEn || p.titulo;
-    const desc = p.descEn || p.desc;
+    const desc = p.descEn || p.desc || `Casa Creativa Inmobiliaria presents this property in ${p.zona}. Get in touch and we'll share all the details.`;
     document.title = titulo + " — Casa Creativa Inmobiliaria";
     crumb.innerHTML = `${p.operacion === 'alquiler' ? UI.alquilar : UI.comprar} / Valencia / ${p.zona} / <span style="color:var(--ink);">${titulo}</span>`;
 
@@ -100,13 +100,13 @@
           <div class="hero-3col-info">
             <div class="eyebrow">${p.zona} · ${p.tipo}</div>
             <h1>${titulo}</h1>
-            <div class="detail-price">${p.precioTexto} ${p.operacion==='venta' ? `<span>· €${Math.round(p.precio/p.m2).toLocaleString('en-GB')}/m²</span>` : ''}</div>
+            <div class="detail-price">${p.precioTexto} ${(p.operacion==='venta' && p.m2) ? `<span>· €${Math.round(p.precio/p.m2).toLocaleString('en-GB')}/m²</span>` : ''}</div>
             <div class="spec-row spec-row-vert">
-              <div><b>${p.hab}</b>${UI.habitaciones}</div>
-              <div><b>${p.m2} m²</b>${UI.superficie}</div>
-              <div><b>${p.planta}</b>${UI.planta}</div>
-              <div><b>${p.ascensor}</b>${UI.ascensor}</div>
-              <div><b>${p.garaje}</b>${UI.garaje}</div>
+              ${p.hab ? `<div><b>${p.hab}</b>${UI.habitaciones}</div>` : ''}
+              ${p.m2 ? `<div><b>${p.m2} m²</b>${UI.superficie}</div>` : ''}
+              ${p.planta ? `<div><b>${p.planta}</b>${UI.planta}</div>` : ''}
+              ${p.ascensor ? `<div><b>${p.ascensor}</b>${UI.ascensor}</div>` : ''}
+              ${p.garaje ? `<div><b>${p.garaje}</b>${UI.garaje}</div>` : ''}
             </div>
           </div>
           <div class="hero-3col-media">
