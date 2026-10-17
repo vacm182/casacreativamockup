@@ -51,9 +51,11 @@ function abrirWhatsApp(mensaje, operacion){
 // ---- Tarjeta de propiedad (se usa en index, comprar y alquilar) ----
 function tarjetaHTML(p){
   const titulo = (CURRENT_LANG === 'en' && p.tituloEn) ? p.tituloEn : p.titulo;
-  const specs = p.operacion === "alquiler"
-    ? `<span>${p.hab} ${UI.hab}</span><span>${p.m2} m²</span>`
-    : `<span>${p.hab} ${UI.hab}</span><span>${p.m2} m²</span><span>${p.planta}</span>`;
+  const _sp = [];
+  if(p.hab) _sp.push(`<span>${p.hab} ${UI.hab}</span>`);
+  if(p.m2) _sp.push(`<span>${p.m2} m²</span>`);
+  if(p.operacion !== "alquiler" && p.planta) _sp.push(`<span>${p.planta}</span>`);
+  const specs = _sp.join('');
   return `
     <a class="card" href="ficha.html?id=${p.id}">
       <div class="thumb">
